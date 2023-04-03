@@ -1,0 +1,22 @@
+PREFIXES:
+		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+
+
+PLAN CONCLUDE rackAt($rackID, $v1, $v2){
+	ID: "http://www.arbi.com//BuiltInPlan#UpdateRackAtWithCargo"
+	PRECONDITION:
+		FACT On($cargoID, $rackID);
+	BODY:
+		RETRACT cargoAt($cargoID, $oldV1, $oldV2);
+		ASSERT cargoAt($cargoID, $v1, $v2);
+		PERFORM NotifyContext("rackAt", $rackID);
+	UTILITY : 210;
+}
+
+PLAN CONCLUDE rackAt($rackID, $v1, $v2){
+	ID: "http://www.arbi.com//BuiltInPlan#UpdateRackAtWithoutCargo"
+	PRECONDITION:
+	BODY:
+		PERFORM NotifyContext("rackAt", $rackID);
+	UTILITY : 200;
+}

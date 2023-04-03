@@ -1,0 +1,17 @@
+PREFIXES:
+		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+
+
+PLAN CONCLUDE robotPosition($robotID, $x, $y){
+	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotPosition"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		FACT GLUtility($glUtility);
+		FACT robotPath($robotID, $path);
+	BODY:
+		$result = $smm.convertPositionToVertex($robotID, $x, $y, $path);
+		RETRACT robotAt($robotID, $oldVertex1, $oldVertex2);
+		$glUtility.assertGL($result);
+	UTILITY : 200;
+}
+

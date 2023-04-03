@@ -1,0 +1,11 @@
+PREFIXES:
+		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+
+
+PLAN CONCLUDE batteryRemain($robotID, $remain){
+	ID: "http://www.arbi.com//BuiltInPlan#concludeBatteryRemain"
+	PRECONDITION:
+	BODY:
+		PERFORM NotifyContext("batteryRemain", $robotID);
+	UTILITY : 200;
+}

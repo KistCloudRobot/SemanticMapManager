@@ -1,0 +1,17 @@
+PREFIXES:
+		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+
+
+FACTS:	
+	FACT  isro:agent("agent://www.mcarbi.com/SemanticMapManager");
+	FACT  isro:localAgent("agent://www.mcarbi.com/Local");
+	FACT  isro:lift1agent("agent://www.mcarbi.com/AMR_LIFT1");
+	FACT  isro:lift2agent("agent://www.mcarbi.com/AMR_LIFT2");
+	FACT  isro:lift3agent("agent://www.mcarbi.com/AMR_LIFT3");
+	FACT  isro:lift4agent("agent://www.mcarbi.com/AMR_LIFT4");
+	
+	/*
+	FACT  isro:KnowledgeManagerAddress("agent://www.arbi.com/LIFT1/knowledgeManager");
+	FACT  isro:PerceptionAddress("agent://www.arbi.com/perception");
+	FACT  isro:DialogueAddress("agent://www.arbi.com/dialogueManager");
+	*/

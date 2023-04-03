@@ -1,0 +1,40 @@
+import semanticMapManager.utility.*;
+import semanticMapManager.SemanticMapManager;
+
+PREFIXES:
+	PREFIX arbi: <http://www.arbi.com//ontologies#>;
+	PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;		
+GOALS:
+	MAINTAIN alive  :UTILITY -10000;
+	PERFORM	boot;
+	
+FACTS:
+	FACT LOG;
+	FACT CURRENT_TIME (0);
+
+OBSERVER: {
+	UPDATE (CURRENT_TIME ($time)) (CURRENT_TIME (System.currentTimeMillis()));
+	FACT SemanticMapManager($smm);
+	$smm.dequeueMessage();
+}
+
+PLAN PERFORM boot() {
+	ID: "boot"
+	BODY:
+		
+		System.out.println("---Start Jam---");
+		RETRIEVE ExtraUtility($helper);
+		System.out.println("---Load plans---");
+		
+		$helper.loadPlan("./plan/planList.jam");
+		
+		
+		PERFORM loadPlanPackage();
+		System.out.println("---Load Complete---");
+		
+		PERFORM ChannelInit();
+		PERFORM SendInitCargoAndRack();
+		System.out.println("---Boot Complete---");
+		//ASSERT palletizerPackingFinished("Palletizer1",1);
+	UTILITY : 1000;
+}

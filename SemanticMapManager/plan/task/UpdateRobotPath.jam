@@ -1,0 +1,16 @@
+PREFIXES:
+		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+
+
+PLAN CONCLUDE updateRobotPath($robotID, $path){
+	ID: "http://www.arbi.com//BuiltInPlan#concludeUpdateRobotPath"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+	BODY:
+		RETRACT robotPath($robotID, $oldPath);
+		ASSERT robotPath($robotID, $path);
+	UTILITY : 200;
+	EFFECTS :
+		RETRACT updateRobotPath($robotID, $path);
+}
+

@@ -1,0 +1,11 @@
+PREFIXES:
+		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+
+
+PLAN CONCLUDE robotStatus($robotID, $status){
+	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotStatus"
+	PRECONDITION:
+	BODY:
+		PERFORM NotifyContext("robotStatus", $robotID);
+	UTILITY : 200;
+}

@@ -1,0 +1,18 @@
+
+plan perform notify($channelName, $address, $data){
+	ID : "notifyByChannel"
+	precondition:
+		fact Channel($channelName, $channel);
+	body:
+		$channel.notify($address,$data);
+	utility : 10;
+}
+
+plan perform notify($channelName, $address, $data){
+	ID : "notifyByChannelFailed"
+	precondition:
+		fact McARBIAgentCommunicator($communication);
+	body:
+		System.out.println("there is no channel : " + $channelName);
+	utility:-1;
+}

@@ -1,0 +1,23 @@
+PREFIXES:
+		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+
+
+PLAN CONCLUDE robotAt($robotID, $v1, $v2){
+	ID: "http://www.arbi.com//BuiltInPlan#ConcludeRobotAtUpdateRackAt"
+	PRECONDITION:
+		FACT On($rackID, $robotID);
+	BODY:
+		RETRACT rackAt($rackID, $oldV1, $oldV2);
+		ASSERT rackAt($rackID, $v1, $v2);
+		PERFORM NotifyContext("robotAt", $robotID);
+	UTILITY : 210;
+}
+
+
+PLAN CONCLUDE robotAt($robotID, $v1, $v2){
+	ID: "http://www.arbi.com//BuiltInPlan#ConcludeRobotAt"
+	PRECONDITION:
+	BODY:
+		PERFORM NotifyContext("robotAt", $robotID);
+	UTILITY : 200;
+}

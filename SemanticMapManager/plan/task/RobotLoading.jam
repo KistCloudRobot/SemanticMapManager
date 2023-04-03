@@ -1,0 +1,50 @@
+PREFIXES:
+		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+
+PLAN CONCLUDE robotLoading($robotID, $load){
+	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotLoadingAssertOn"
+	PRECONDITION:
+		FACT robotAt($robotID, $v1, $v2);
+		FACT rackAt($rackID, $v1, $v2);
+		$load == "Loading";
+		
+	BODY:
+		ASSERT On($rackID, $robotID);
+		PERFORM NotifyContext("robotLoading", $robotID);
+	UTILITY : 210;
+}
+
+PLAN CONCLUDE robotLoading($robotID, $load){
+	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotLoading"
+	PRECONDITION:
+		FACT robotAt($robotID, $v1, $v2);
+		FACT rackAt($rackID, $v1, $v2);
+		$load == "Unloading";
+		FACT On($rackID, $robotID);
+		
+	BODY:
+		RETRACT On($rackID, $robotID);
+		
+		PERFORM NotifyContext("robotLoading", $robotID);
+	UTILITY : 250;
+}
+
+PLAN CONCLUDE robotLoading($robotID, $load){
+	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotUnloadingAssert"
+	PRECONDITION:
+		$load == "Unloading";
+	BODY:
+		PERFORM NotifyContext("robotLoading", $robotID);
+	UTILITY : 200;
+}
+
+PLAN CONCLUDE robotLoading($robotID, $load){
+	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotLoadingDoNothing"
+	PRECONDITION:
+		FACT robotAt($robotID, $v1, $v2);
+		$load == "Loading";
+	BODY:
+		PERFORM NotifyContext("robotLoading", $robotID);
+	UTILITY : 200;
+}
+

@@ -1,0 +1,87 @@
+PREFIXES:
+	PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+	
+FACTS:	
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_01", 1, 1);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_02", 3, 3);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_03", 20, 20);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_04", 50, 50);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_05", 2, 2);
+	
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_01",1,1);
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_02",20,20);
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_03",2,2);
+	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_01", "http://www.arbi.com/ontologies/arbi.owl#pallet_01");
+	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_02", "http://www.arbi.com/ontologies/arbi.owl#pallet_03");
+	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_03", "http://www.arbi.com/ontologies/arbi.owl#pallet_05");
+
+
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_01", "Exist");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_02", "Exist");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_03", "Exist");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_04", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_05", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_06", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_07", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_08", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_09", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_10", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_11", "None");	
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_12", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_13", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_14", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_15", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_16", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_17", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_18", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_19", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_20", "None");	
+	
+/*
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_06", 21, 21);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_07", 25, 25);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_08", 26, 26);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_09", 29, 29);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_10", 31, 31);
+	
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_04",13,13);
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_05",20,20);
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_06",21,21);
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_07",25,25);
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_08",26,26);
+ 
+	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_03", "http://www.arbi.com/ontologies/arbi.owl#pallet_03");
+	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_04", "http://www.arbi.com/ontologies/arbi.owl#pallet_04");
+	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_05", "http://www.arbi.com/ontologies/arbi.owl#pallet_05");
+	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_06", "http://www.arbi.com/ontologies/arbi.owl#pallet_06");
+	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_07", "http://www.arbi.com/ontologies/arbi.owl#pallet_07");
+	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_08", "http://www.arbi.com/ontologies/arbi.owl#pallet_08");
+	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_09", "http://www.arbi.com/ontologies/arbi.owl#pallet_09");
+*/
+	fact robotPosition("AMR_LIFT1", 0,0);
+	fact robotLoading("AMR_LIFT1", "Unloading");
+	fact robotAt("AMR_LIFT1", 0,0);
+	fact robotDegree("AMR_LIFT1", 0);
+	fact robotStatus("AMR_LIFT1", "ready");
+	fact batteryRemain("AMR_LIFT1", 0);
+	
+	fact robotPosition("AMR_LIFT2", 0,0);
+	fact robotLoading("AMR_LIFT2", "Unloading");
+	fact robotAt("AMR_LIFT2", 0,0);
+	fact robotDegree("AMR_LIFT2", 0);
+	fact robotStatus("AMR_LIFT2", "ready");
+	fact batteryRemain("AMR_LIFT2", 0);
+
+	fact robotPosition("AMR_LIFT3", 0,0);
+	fact robotLoading("AMR_LIFT3", "Unloading");
+	fact robotAt("AMR_LIFT3", 0,0);
+	fact robotDegree("AMR_LIFT3", 0);
+	fact robotStatus("AMR_LIFT3", "ready");
+	fact batteryRemain("AMR_LIFT3", 0);
+
+	fact robotPosition("AMR_LIFT4", 0,0);
+	fact robotLoading("AMR_LIFT4", "Unloading");
+	fact robotAt("AMR_LIFT4", 0,0);
+	fact robotDegree("AMR_LIFT4", 0);
+	fact robotStatus("AMR_LIFT4", "ready");
+	fact batteryRemain("AMR_LIFT4", 0);

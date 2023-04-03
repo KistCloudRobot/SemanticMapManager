@@ -1,0 +1,32 @@
+PREFIXES:
+		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+
+PLAN CONCLUDE cargoAt($cargoID, $v1, $v2){
+	ID: "http://www.arbi.com//BuiltInPlan#UpdateCargoAt"
+	PRECONDITION:
+	BODY:
+		PERFORM NotifyContext("cargoAt", $cargoID);
+	UTILITY : 210;
+}
+
+
+PLAN CONCLUDE cargoAt($cargoID, $v1, $v2){
+	ID: "http://www.arbi.com//BuiltInPlan#cargoReleasingAtStation3"
+	PRECONDITION:
+		$v1 == 3;
+		$v2 == 3;
+	BODY:
+		PERFORM NotifyContext("cargoAt", $cargoID);
+		PERFORM CargoReleased($cargoID, $v1);
+	UTILITY : 220;
+}
+PLAN CONCLUDE cargoAt($cargoID, $v1, $v2){
+	ID: "http://www.arbi.com//BuiltInPlan#cargoReleasingAtStation4"
+	PRECONDITION:
+		$v1 == 4;
+		$v2 == 4;
+	BODY:
+		PERFORM NotifyContext("cargoAt", $cargoID);
+		PERFORM CargoReleased($cargoID, $v1);
+	UTILITY : 220;
+}
