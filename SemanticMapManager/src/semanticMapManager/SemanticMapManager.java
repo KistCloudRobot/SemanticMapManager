@@ -129,14 +129,18 @@ public class SemanticMapManager extends ArbiAgent {
 		    for (Vertex vertex : vertexMap.values()) {
 		       float distance = calculateDistance(vertex.getX(), vertex.getY(), x, y);
 		       if (distance < minDistance) {
-		    	   nextMinDistance = minDistance;
 		    	   minDistance = distance;
-		    	   secondNearestVertex = nearestVertex;
 		    	   nearestVertex = vertex;
-		       } else if (distance < nextMinDistance) {
-		    	   secondNearestVertex = vertex;
-		        }
+		       }
 		    } 
+		    for(int edge : nearestVertex.getEdges()) {
+		    	Vertex v = vertexMap.get(edge);
+		    	float distance = calculateDistance(v.getX(), v.getY(), x, y);
+		    	if (distance < nextMinDistance) {
+		    		nextMinDistance = distance;
+		    		secondNearestVertex = v;
+		    	}
+		    }
 		} else {
 			for (int i = 0; i < pathGL.getExpressionsSize(); i++) {
 				Vertex vertex = vertexMap.get(pathGL.getExpression(i).asValue().intValue());
@@ -175,7 +179,7 @@ public class SemanticMapManager extends ArbiAgent {
 
 				gl = GLFactory.newGLFromGLString(data);
 
-				//System.out.println("message dequeued : " + gl.toString());
+//				System.out.println("message dequeued : " + gl.toString());
 
 				if (gl.getName().equals("context")){
 					msgManager.assertGL(data);

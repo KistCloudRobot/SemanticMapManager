@@ -20,7 +20,7 @@ public class RobotAtTest {
 		
 		String result ="";
 		try {
-			result = test.convertPositionToVertex("test", (float) 11.543, (float)3.673 , "(path 141 149 150)");
+			result = test.convertPositionToVertex("test", (float) 24.874, (float)10.403 , "(path)");
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

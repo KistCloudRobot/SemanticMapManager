@@ -16,14 +16,14 @@ PLAN PERFORM SendInitCargoAndRack(){
 		$smm.sleepAwhile(100);
 		PERFORM NotifyContext("rackAt", "http://www.arbi.com/ontologies/arbi.owl#pallet_04");
 		$smm.sleepAwhile(100);
-		PERFORM NotifyContext("rackAt", "http://www.arbi.com/ontologies/arbi.owl#pallet_05");
-		$smm.sleepAwhile(100);
+		//PERFORM NotifyContext("rackAt", "http://www.arbi.com/ontologies/arbi.owl#pallet_05");
+		//$smm.sleepAwhile(100);
 		PERFORM NotifyContext("cargoAt","http://www.arbi.com/ontologies/arbi.owl#bin_01");
 		$smm.sleepAwhile(100);
 		PERFORM NotifyContext("cargoAt", "http://www.arbi.com/ontologies/arbi.owl#bin_02");
-		$smm.sleepAwhile(100);
-		PERFORM NotifyContext("cargoAt", "http://www.arbi.com/ontologies/arbi.owl#bin_03");
-		$smm.sleepAwhile(100);
+		//$smm.sleepAwhile(100);
+		//PERFORM NotifyContext("cargoAt", "http://www.arbi.com/ontologies/arbi.owl#bin_03");
+		//$smm.sleepAwhile(100);
 		System.out.println("send init cargo and rack complete");
 	UTILITY : 10000;
 }
