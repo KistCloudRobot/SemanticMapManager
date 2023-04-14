@@ -68,7 +68,8 @@ public class SemanticMapManager extends ArbiAgent {
 		String channelHost = "";
 		int port = 0;
 		if(args.length == 0) {
-			brokerAddress = "172.16.165.164";
+//			brokerAddress = "172.16.165.164";
+			brokerAddress = "192.168.100.11";
 			port = 61315;
 //			channelHost = "172.16.165.158";
 		} else {
@@ -116,7 +117,7 @@ public class SemanticMapManager extends ArbiAgent {
 		float nextMinDistance = Float.MAX_VALUE;
 		Vertex nearestVertex = null;
 		Vertex secondNearestVertex = null;
-//		System.out.println("input (robotPosition "+robotID +" " + x + " " + y);
+		System.out.println("input (robotPosition "+robotID +" " + x + " " + y);
 
 	    GeneralizedList pathGL = null;
 		try {
@@ -162,7 +163,7 @@ public class SemanticMapManager extends ArbiAgent {
 		} else {
 			result = "(robotAt \"" + robotID + "\" " + nearestVertex.getVertexName() + " " + secondNearestVertex.getVertexName() + ")";
 		}
-//		System.out.println("output " + result);
+		System.out.println("output " + result);
 		return result;
 	}
 	
