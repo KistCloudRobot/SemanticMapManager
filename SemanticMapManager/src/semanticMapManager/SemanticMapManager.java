@@ -117,7 +117,7 @@ public class SemanticMapManager extends ArbiAgent {
 		float nextMinDistance = Float.MAX_VALUE;
 		Vertex nearestVertex = null;
 		Vertex secondNearestVertex = null;
-		System.out.println("input (robotPosition "+robotID +" " + x + " " + y);
+		System.out.println("input (robotPosition "+robotID +" " + x + " " + y  + " timestamp : " + System.currentTimeMillis());
 
 	    GeneralizedList pathGL = null;
 		try {
@@ -163,7 +163,7 @@ public class SemanticMapManager extends ArbiAgent {
 		} else {
 			result = "(robotAt \"" + robotID + "\" " + nearestVertex.getVertexName() + " " + secondNearestVertex.getVertexName() + ")";
 		}
-		System.out.println("output " + result);
+		System.out.println("output " + result + " timestamp : " + System.currentTimeMillis());
 		return result;
 	}
 	

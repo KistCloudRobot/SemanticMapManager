@@ -4,11 +4,11 @@ PREFIXES:
 FACTS:	
 	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_01", 2, 2);
 	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_02", 4, 4);
-	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_03", 32, 32);
-	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_04", 14, 14);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_03", 40, 40);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_04", 28, 28);
 	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_05", 16, 16);
-	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_06", 22, 22);
-	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_07", 50, 50);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_06", 20, 20);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_07", 30, 30);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_08", 36, 36);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_09", 40, 40);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_10", 48, 48);
@@ -17,8 +17,8 @@ FACTS:
 	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_01",2,2);
 	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_02",4,4);
 	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_05",16,16);
-	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_06",22,22);
-	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_07",50,50);
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_06",20,20);
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_07",30,30);
 //	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_08",36,36);
 //	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_09",40,40);
 //	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_03",48,48);
