@@ -21,15 +21,14 @@ public class MultiAgentCommunicator extends Agent{
 		return this.getConversationID();
 	}
 	public Channel createAgentChannel(String channelName) {
-		Channel channel = new AgentChannel(channelName, this, BrokerType.ZEROMQ, messageQueue);
+		Channel channel = new AgentChannel(channelName, this, BrokerType.ACTIVEMQ, messageQueue);
 		ChannelFactory.createChannel(channel);
 		return channel;
 	}
 	
 	public Channel connectAgentChannel(String channelName) {
-		Channel channel = new AgentChannel(channelName, this, BrokerType.ZEROMQ, messageQueue);
+		Channel channel = new AgentChannel(channelName, this, BrokerType.ACTIVEMQ, messageQueue);
 		ChannelFactory.connectChannel(channel);
-		System.out.println("??? connected? " + channel.getChannelName());
 		channel.send("agent://www.mcarbi.com/SemanticMapManager", "(hi)");
 		return channel;
 	}

@@ -13,6 +13,23 @@ PLAN CONCLUDE context($context){
 		
 	UTILITY : 10;
 }
+
+PLAN CONCLUDE context($context){
+	ID: "http://www.arbi.com//BuiltInPlan#contextAgentTaskStatus"
+	PRECONDITION:
+		FACT GLUtility($glUtility);
+		$glUtility.retrieveGLName($context) == "AgentTaskStatus";
+	BODY:
+		$robot = $glUtility.retrieveGLExpression($context, 0);
+		RETRACT AgentTaskStatus($robot, $id, $taskName, $status);
+		$glUtility.assertGL($context);
+		
+		RETRACT context($context);
+		
+	UTILITY : 100;
+}
+
+
 PLAN CONCLUDE context($context){
 	ID: "http://www.arbi.com//BuiltInPlan#contextrobotVelocity"
 	PRECONDITION:

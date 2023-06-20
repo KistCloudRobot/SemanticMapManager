@@ -33,7 +33,7 @@ PLAN PERFORM boot() {
 		System.out.println("---Load Complete---");
 		
 		PERFORM ChannelInit();
-		PERFORM SendInitCargoAndRack();
+		PERFORM initialize();
 		System.out.println("---Boot Complete---");
 		//ASSERT palletizerPackingFinished("Palletizer1",1);
 	UTILITY : 1000;

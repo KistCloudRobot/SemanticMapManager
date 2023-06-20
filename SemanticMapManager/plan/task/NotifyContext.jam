@@ -10,8 +10,8 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		FACT isro:localAgent($local);
 		FACT robotStatus($robotID, $v1);
 	BODY:
-		$data = "(UpdateContext (context (robotStatus \"" + $robotID + "\" $oldV1)) (context (robotStatus \"" + $robotID +"\" \"" + $v1 + "\")))";
-		$ltmData = "(update (context (robotStatus \"" + $robotID + "\" $oldV1)) (context (robotStatus \"" + $robotID +"\" \"" + $v1 + "\")))";
+		$data = "(updateFactContext (context (robotStatus \"" + $robotID + "\" $oldV1)) (context (robotStatus \"" + $robotID +"\" \"" + $v1 + "\")))";
+		$ltmData = "(updateFact (robotStatus \"" + $robotID + "\" $oldV1) (robotStatus \"" + $robotID +"\" \"" + $v1 + "\"))";
 		$smm.updateToLTM($ltmData);
 		perform notify("logistic", $local, $data);
 	UTILITY : 100;
@@ -26,8 +26,24 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		FACT  isro:localAgent($local);
 		FACT batteryRemain($robotID, $v1);
 	BODY:
-		$data = "(UpdateContext (context (batteryRemain \"" + $robotID + "\" $oldV1)) (context (batteryRemain \"" + $robotID +"\" " + $v1 + ")))";
-		$ltmData = "(update (context (batteryRemain \"" + $robotID + "\" $oldV1)) (context (batteryRemain \"" + $robotID +"\" " + $v1 + ")))";
+		$data = "(updateFactContext (context (batteryRemain \"" + $robotID + "\" $oldV1)) (context (batteryRemain \"" + $robotID +"\" " + $v1 + ")))";
+		$ltmData = "(updateFact (batteryRemain \"" + $robotID + "\" $oldV1) (batteryRemain \"" + $robotID +"\" " + $v1 + "))";
+		$smm.updateToLTM($ltmData);
+		
+		perform notify("logistic", $local, $data);
+	UTILITY : 100;
+}
+
+PLAN PERFORM NotifyContext($contextName, $robotID){
+	ID: "http://www.arbi.com//BuiltInPlan#notifyRobotVelocity"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		$contextName =="robotVelocity";
+		FACT  isro:localAgent($local);
+		FACT robotVelocity($robotID, $v1);
+	BODY:
+		$data = "(updateFactContext (context (robotVelocity \"" + $robotID + "\" $oldV1)) (context (robotVelocity \"" + $robotID +"\" " + $v1 + ")))";
+		$ltmData = "(updateFact (robotVelocity \"" + $robotID + "\" $oldV1) (robotVelocity \"" + $robotID +"\" " + $v1 + "))";
 		$smm.updateToLTM($ltmData);
 		
 		perform notify("logistic", $local, $data);
@@ -43,8 +59,8 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		FACT  isro:localAgent($local);
 		FACT robotDegree($robotID, $v1);
 	BODY:
-		$data = "(UpdateContext (context (robotDegree \"" + $robotID + "\" $oldV1)) (context (robotDegree \"" + $robotID +"\" " + $v1 + ")))";
-		$ltmData = "(update (context (robotDegree \"" + $robotID + "\" $oldV1)) (context (robotDegree \"" + $robotID +"\" " + $v1 + ")))";
+		$data = "(updateFactContext (context (robotDegree \"" + $robotID + "\" $oldV1)) (context (robotDegree \"" + $robotID +"\" " + $v1 + ")))";
+		$ltmData = "(updateFact (robotDegree \"" + $robotID + "\" $oldV1) (robotDegree \"" + $robotID +"\" " + $v1 + "))";
 		$smm.updateToLTM($ltmData);
 		
 		perform notify("logistic", $local, $data);
@@ -60,8 +76,8 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		FACT isro:localAgent($local);
 		FACT robotLoading($robotID, $v1);
 	BODY:
-		$data = "(UpdateContext (context (robotLoading \"" + $robotID + "\" $oldV1)) (context (robotLoading \"" + $robotID +"\" \"" + $v1 + "\")))";
-		$ltmData = "(update (context (robotLoading \"" + $robotID + "\" $oldV1)) (context (robotLoading \"" + $robotID +"\" \"" + $v1 + "\")))";
+		$data = "(updateFactContext (context (robotLoading \"" + $robotID + "\" $oldV1)) (context (robotLoading \"" + $robotID +"\" \"" + $v1 + "\")))";
+		$ltmData = "(updateFact (robotLoading \"" + $robotID + "\" $oldV1) (robotLoading \"" + $robotID +"\" \"" + $v1 + "\"))";
 		$smm.updateToLTM($ltmData);
 		
 		perform notify("logistic", $local, $data);
@@ -78,8 +94,8 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		FACT  isro:lift1agent($lift1);
 		FACT robotAt($robotID, $v1, $v2);
 	BODY:
-		$data = "(UpdateContext (context (robotAt \"" + $robotID + "\" $oldV1 $oldV2)) (context (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +")))";
-		$ltmData = "(update (context (robotAt \"" + $robotID + "\" $oldV1 $oldV2)) (context (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +")))";
+		$data = "(updateFactContext (context (robotAt \"" + $robotID + "\" $oldV1 $oldV2)) (context (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +")))";
+		$ltmData = "(updateFact (robotAt \"" + $robotID + "\" $oldV1 $oldV2) (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +"))";
 		$smm.updateToLTM($ltmData);
 		
 		perform notify("logistic", $local, $data);
@@ -99,8 +115,8 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		FACT  isro:lift2agent($lift2);
 		FACT robotAt($robotID, $v1, $v2);
 	BODY:
-		$data = "(UpdateContext (context (robotAt \"" + $robotID + "\" $oldV1 $oldV2)) (context (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +")))";
-		$ltmData = "(update (context (robotAt \"" + $robotID + "\" $oldV1 $oldV2)) (context (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +")))";
+		$data = "(updateFactContext (context (robotAt \"" + $robotID + "\" $oldV1 $oldV2)) (context (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +")))";
+		$ltmData = "(updateFact (robotAt \"" + $robotID + "\" $oldV1 $oldV2) (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +"))";
 		$smm.updateToLTM($ltmData);
 		perform notify("logistic", $local, $data);
 		perform notify("logistic", $lift2, $data);
@@ -118,8 +134,8 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		FACT  isro:lift3agent($lift3);
 		FACT robotAt($robotID, $v1, $v2);
 	BODY:
-		$data = "(UpdateContext (context (robotAt \"" + $robotID + "\" $oldV1 $oldV2)) (context (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +")))";
-		$ltmData = "(update (context (robotAt \"" + $robotID + "\" $oldV1 $oldV2)) (context (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +")))";
+		$data = "(updateFactContext (context (robotAt \"" + $robotID + "\" $oldV1 $oldV2)) (context (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +")))";
+		$ltmData = "(updateFact (robotAt \"" + $robotID + "\" $oldV1 $oldV2) (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +"))";
 		$smm.updateToLTM($ltmData);
 		perform notify("logistic", $local, $data);
 		perform notify("logistic", $lift3, $data);
@@ -136,8 +152,8 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		FACT  isro:lift4agent($lift4);
 		FACT robotAt($robotID, $v1, $v2);
 	BODY:
-		$data = "(UpdateContext (context (robotAt \"" + $robotID + "\" $oldV1 $oldV2)) (context (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +")))";
-		$ltmData = "(update (context (robotAt \"" + $robotID + "\" $oldV1 $oldV2)) (context (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +")))";
+		$data = "(updateFactContext (context (robotAt \"" + $robotID + "\" $oldV1 $oldV2)) (context (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +")))";
+		$ltmData = "(updateFact (robotAt \"" + $robotID + "\" $oldV1 $oldV2) (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +"))";
 		$smm.updateToLTM($ltmData);
 		perform notify("logistic", $local, $data);
 		perform notify("logistic", $lift4, $data);
@@ -152,8 +168,8 @@ PLAN PERFORM NotifyContext($contextName, $rackID){
 		FACT  rackAt($rackID, $v1, $v2);
 	BODY:
 		//System.out.println("notify rackAt " + $rackID +"," +$v1+"," +$v2);
-		$data = "(UpdateContext (context (rackAt \"" + $rackID + "\" $oldV1 $oldV2)) (context (rackAt \"" + $rackID +"\" " + $v1 + " " + $v2 +")))";
-		$ltmData = "(update (context (rackAt \"" + $rackID + "\" $oldV1 $oldV2)) (context (rackAt \"" + $rackID +"\" " + $v1 + " " + $v2 +")))";
+		$data = "(updateFactContext (context (rackAt \"" + $rackID + "\" $oldV1 $oldV2)) (context (rackAt \"" + $rackID +"\" " + $v1 + " " + $v2 +")))";
+		$ltmData = "(updateFact (rackAt \"" + $rackID + "\" $oldV1 $oldV2) (rackAt \"" + $rackID +"\" " + $v1 + " " + $v2 +"))";
 		$smm.updateToLTM($ltmData);
 		
 		perform notify("logistic", $local, $data);
@@ -169,8 +185,8 @@ PLAN PERFORM NotifyContext($contextName, $cargoID){
 		FACT cargoAt($cargoID, $v1, $v2);
 	BODY:
 		//System.out.println("notify cargoAt " + $cargoID +"," +$v1+"," +$v2);
-		$data = "(UpdateContext (context (cargoAt \"" + $cargoID + "\" $oldV1 $oldV2)) (context (cargoAt \"" + $cargoID +"\" " + $v1 + " " + $v2 +")))";
-		$ltmData = "(update (context (cargoAt \"" + $cargoID + "\" $oldV1 $oldV2)) (context (cargoAt \"" + $cargoID +"\" " + $v1 + " " + $v2 +")))";
+		$data = "(updateFactContext (context (cargoAt \"" + $cargoID + "\" $oldV1 $oldV2)) (context (cargoAt \"" + $cargoID +"\" " + $v1 + " " + $v2 +")))";
+		$ltmData = "(updateFact (cargoAt \"" + $cargoID + "\" $oldV1 $oldV2) (cargoAt \"" + $cargoID +"\" " + $v1 + " " + $v2 +"))";
 		$smm.updateToLTM($ltmData);
 		
 		perform notify("logistic", $local, $data);

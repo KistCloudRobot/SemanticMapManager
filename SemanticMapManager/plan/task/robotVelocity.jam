@@ -1,0 +1,11 @@
+PREFIXES:
+		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+
+
+PLAN CONCLUDE robotVelocity($robotID, $velocity){
+	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotVelocity"
+	PRECONDITION:
+	BODY:
+		PERFORM NotifyContext("robotVelocity", $robotID);
+	UTILITY : 200;
+}
