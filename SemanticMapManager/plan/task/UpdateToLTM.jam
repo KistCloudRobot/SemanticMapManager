@@ -1,0 +1,123 @@
+PLAN PERFORM UpdateToLTM($robotID, $contextName){
+	ID: "http://www.arbi.com//UpdateToLTMAgentTaskStatus"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		$contextName =="AgentTaskStatus";
+		FACT AgentTaskStatus($robotID, $id, $taskName, $status);
+	BODY:
+	
+		$ltmData = "(updateFact (AgentTaskStatus \"" + $robotID + "\" $oldV1 $oldV2 $oldV3) (AgentTaskStatus \"" + $robotID +"\" \"" + $id + "\" \"" + $taskName +"\" \"" +$status +"\"))";
+		$smm.updateToLTM($ltmData);
+		
+	UTILITY : 100;
+}
+
+
+PLAN PERFORM UpdateToLTM($cargoID, $contextName){
+	ID: "http://www.arbi.com//UpdateToLTMCargoAt"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		$contextName =="cargoAt";
+		FACT cargoAt($cargoID, $v1, $v2);
+	BODY:
+	
+		$ltmData = "(updateFact (cargoAt \"" + $cargoID + "\" $oldV1 $oldV2) (cargoAt \"" + $cargoID +"\" " + $v1 + " " + $v2 +"))";
+		$smm.updateToLTM($ltmData);
+		
+	UTILITY : 100;
+}
+
+PLAN PERFORM UpdateToLTM($rackID, $contextName){
+	ID: "http://www.arbi.com//UpdateToLTMRackAt"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		$contextName =="rackAt";
+		FACT  rackAt($rackID, $v1, $v2);
+	BODY:
+	
+		$ltmData = "(updateFact (rackAt \"" + $rackID + "\" $oldV1 $oldV2) (rackAt \"" + $rackID +"\" " + $v1 + " " + $v2 +"))";
+		$smm.updateToLTM($ltmData);
+		
+	UTILITY : 100;
+}
+
+PLAN PERFORM UpdateToLTM($robotID, $contextName){
+	ID: "http://www.arbi.com//UpdateToLTMRobotAt"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		$contextName =="robotAt";
+		FACT robotAt($robotID, $v1, $v2);
+	BODY:
+	
+		$ltmData = "(updateFact (robotAt \"" + $robotID + "\" $oldV1 $oldV2) (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +"))";
+		$smm.updateToLTM($ltmData);
+		
+	UTILITY : 100;
+}
+
+PLAN PERFORM UpdateToLTM($robotID, $contextName){
+	ID: "http://www.arbi.com//UpdateToLTMrobotLoading"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		$contextName =="robotLoading";
+		FACT robotLoading($robotID, $v1);
+	BODY:
+		$ltmData = "(updateFact (robotLoading \"" + $robotID + "\" $oldV1) (robotLoading \"" + $robotID +"\" \"" + $v1 + "\"))";
+		$smm.updateToLTM($ltmData);
+		
+	UTILITY : 100;
+}
+
+PLAN PERFORM UpdateToLTM($robotID, $contextName){
+	ID: "http://www.arbi.com//UpdateToLTMrobotDegree"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		$contextName =="robotDegree";
+		FACT robotDegree($robotID, $v1);
+	BODY:
+		$ltmData = "(updateFact (robotDegree \"" + $robotID + "\" $oldV1) (robotDegree \"" + $robotID +"\" \"" + $v1 + "\"))";
+		$smm.updateToLTM($ltmData);
+		
+	UTILITY : 100;
+}
+
+PLAN PERFORM UpdateToLTM($robotID, $contextName){
+	ID: "http://www.arbi.com//UpdateToLTMrobotVelocity"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		$contextName =="robotVelocity";
+		FACT robotVelocity($robotID, $v1);
+	BODY:
+		$ltmData = "(updateFact (robotVelocity \"" + $robotID + "\" $oldV1) (robotVelocity \"" + $robotID +"\" \"" + $v1 + "\"))";
+		$smm.updateToLTM($ltmData);
+		
+	UTILITY : 100;
+}
+
+
+PLAN PERFORM UpdateToLTM($robotID, $contextName){
+	ID: "http://www.arbi.com//UpdateToLTMbatteryRemain"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		$contextName =="batteryRemain";
+		FACT batteryRemain($robotID, $v1);
+	BODY:
+		$ltmData = "(updateFact (batteryRemain \"" + $robotID + "\" $oldV1) (batteryRemain \"" + $robotID +"\" \"" + $v1 + "\"))";
+		$smm.updateToLTM($ltmData);
+		
+	UTILITY : 100;
+}
+
+
+PLAN PERFORM UpdateToLTM($robotID, $contextName){
+	ID: "http://www.arbi.com//UpdateToLTMrobotStatus"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		$contextName =="robotStatus";
+		FACT robotStatus($robotID, $v1);
+	BODY:
+		$ltmData = "(updateFact (robotStatus \"" + $robotID + "\" $oldV1) (robotStatus \"" + $robotID +"\" \"" + $v1 + "\"))";
+		$smm.updateToLTM($ltmData);
+		
+	UTILITY : 100;
+}
