@@ -121,3 +121,16 @@ PLAN PERFORM UpdateToLTM($robotID, $contextName){
 		
 	UTILITY : 100;
 }
+
+PLAN PERFORM UpdateToLTM($robotID, $contextName){
+	ID: "http://www.arbi.com//UpdateToLTMrobotPosition"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		$contextName =="robotPosition";
+		FACT robotPosition($robotID, $v1, $v2);
+	BODY:
+		$ltmData = "(updateFact (robotPosition \"" + $robotID + "\" $oldV1 $oldV2) (robotPosition \"" + $robotID +"\" " + $v1 + " " + $v2+"))";
+		$smm.updateToLTM($ltmData);
+		
+	UTILITY : 100;
+}
