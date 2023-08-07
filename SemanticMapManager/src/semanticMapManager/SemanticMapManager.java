@@ -117,8 +117,37 @@ public class SemanticMapManager extends ArbiAgent {
 		}
 	}
 
-	public String convertPositionToVertex(String robotID, float x, float y, String path) {
-		return calcurator.convertPositionToVertex(robotID, x, y, path);
+	public String convertPositionToVertex(String location, String robotID, float x, float y, String path) {
+		return calcurator.convertPositionToVertex(location, robotID, x, y, path);
+	}
+	
+	public String getObjectContextReceiver(String objectID) {
+		String result = null;
+		
+		String num = objectID.substring(objectID.length() - 2);
+//		System.out.println(num);
+		int i = Integer.parseInt(num);
+		if (i <= 20) {
+			result = "agent://www.mcarbi.com/Local1";
+		} else if (i > 20 && i <= 40) {
+			result = "agent://www.mcarbi.com/Local2";
+		}
+		return result;
+	}
+	
+	public String getRobotContextReceiver(String robotID) {
+		String result = null;
+		
+		String num = robotID.substring(robotID.length() - 1);
+//		System.out.println(num);
+		int i = Integer.parseInt(num);
+		
+		if (i <= 4) {
+			result = "agent://www.mcarbi.com/Local1";
+		} else if (i >= 5 && i <= 7) {
+			result = "agent://www.mcarbi.com/Local2";
+		}
+		return result;
 	}
 	
 	public void assertToLTM(String content) {
@@ -144,6 +173,7 @@ public class SemanticMapManager extends ArbiAgent {
 			brokerAddress = args[1];
 		}
 		SemanticMapManager agent = new SemanticMapManager(brokerAddress, brokerAddress, port);
+		
 	}
 
 	

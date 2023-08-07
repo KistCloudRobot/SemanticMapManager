@@ -8,9 +8,10 @@ PLAN CONCLUDE robotPosition($robotID, $x, $y){
 		FACT SemanticMapManager($smm);
 		FACT GLUtility($glUtility);
 		FACT robotPath($robotID, $path);
+		FACT robotLocation($robotID, $location);
 	BODY:
 		PERFORM UpdateToLTM($robotID, "robotPosition");
-		$result = $smm.convertPositionToVertex($robotID, $x, $y, $path);
+		$result = $smm.convertPositionToVertex($location, $robotID, $x, $y, $path);
 		RETRACT robotAt($robotID, $oldVertex1, $oldVertex2);
 		$glUtility.assertGL($result);
 	UTILITY : 200;

@@ -60,6 +60,18 @@ FACTS:
 	fact robotPath("AMR_LIFT2", "(path)");
 	fact robotPath("AMR_LIFT3", "(path)");
 	fact robotPath("AMR_LIFT4", "(path)");
+	fact robotPath("AMR_LIFT5", "(path)");
+	fact robotPath("AMR_LIFT6", "(path)");
+	fact robotPath("AMR_LIFT7", "(path)");
+	
+	fact robotLocation("AMR_LIFT1", "potenit");
+	fact robotLocation("AMR_LIFT2", "potenit");
+	fact robotLocation("AMR_LIFT3", "potenit");
+	fact robotLocation("AMR_LIFT4", "potenit");
+	fact robotLocation("AMR_LIFT5", "isaac");
+	fact robotLocation("AMR_LIFT6", "isaac");
+	fact robotLocation("AMR_LIFT7", "isaac");
+	
 	
 /*
 	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_06", 21, 21);
@@ -101,3 +113,24 @@ FACTS:
 	fact robotDegree("AMR_LIFT4", 0);
 	fact robotStatus("AMR_LIFT4", "ready");
 	fact batteryRemain("AMR_LIFT4", 0);
+	
+	fact robotPosition("AMR_LIFT5", 0,0);
+	fact robotLoading("AMR_LIFT5", "Unloading");
+	fact robotAt("AMR_LIFT5", 0,0);
+	fact robotDegree("AMR_LIFT5", 0);
+	fact robotStatus("AMR_LIFT5", "ready");
+	fact batteryRemain("AMR_LIFT5", 0);
+	
+	fact robotPosition("AMR_LIFT6", 0,0);
+	fact robotLoading("AMR_LIFT6", "Unloading");
+	fact robotAt("AMR_LIFT6", 0,0);
+	fact robotDegree("AMR_LIFT6", 0);
+	fact robotStatus("AMR_LIFT6", "ready");
+	fact batteryRemain("AMR_LIFT6", 0);
+	
+	fact robotPosition("AMR_LIFT7", 0,0);
+	fact robotLoading("AMR_LIFT7", "Unloading");
+	fact robotAt("AMR_LIFT7", 0,0);
+	fact robotDegree("AMR_LIFT7", 0);
+	fact robotStatus("AMR_LIFT7", "ready");
+	fact batteryRemain("AMR_LIFT7", 0);

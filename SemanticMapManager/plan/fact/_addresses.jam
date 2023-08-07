@@ -4,14 +4,22 @@ PREFIXES:
 
 FACTS:	
 	FACT  isro:agent("agent://www.mcarbi.com/SemanticMapManager");
-	FACT  isro:localAgent("agent://www.mcarbi.com/Local");
+	FACT  isro:local1Agent("agent://www.mcarbi.com/Local1");
+	FACT  isro:local2Agent("agent://www.mcarbi.com/Local2");
 	FACT  isro:lift1agent("agent://www.mcarbi.com/AMR_LIFT1");
 	FACT  isro:lift2agent("agent://www.mcarbi.com/AMR_LIFT2");
 	FACT  isro:lift3agent("agent://www.mcarbi.com/AMR_LIFT3");
 	FACT  isro:lift4agent("agent://www.mcarbi.com/AMR_LIFT4");
+	FACT  isro:lift5agent("agent://www.mcarbi.com/AMR_LIFT5");
+	FACT  isro:lift6agent("agent://www.mcarbi.com/AMR_LIFT6");
+	FACT  isro:lift7agent("agent://www.mcarbi.com/AMR_LIFT7");
 	
-	/*
-	FACT  isro:KnowledgeManagerAddress("agent://www.arbi.com/LIFT1/knowledgeManager");
-	FACT  isro:PerceptionAddress("agent://www.arbi.com/perception");
-	FACT  isro:DialogueAddress("agent://www.arbi.com/dialogueManager");
-	*/
+	
+	FACT  robotAgentAddress("AMR_LIFT1","agent://www.mcarbi.com/AMR_LIFT1");
+	FACT  robotAgentAddress("AMR_LIFT2","agent://www.mcarbi.com/AMR_LIFT2");
+	FACT  robotAgentAddress("AMR_LIFT3","agent://www.mcarbi.com/AMR_LIFT3");
+	FACT  robotAgentAddress("AMR_LIFT4","agent://www.mcarbi.com/AMR_LIFT4");
+	FACT  robotAgentAddress("AMR_LIFT5","agent://www.mcarbi.com/AMR_LIFT5");
+	FACT  robotAgentAddress("AMR_LIFT6","agent://www.mcarbi.com/AMR_LIFT6");
+	FACT  robotAgentAddress("AMR_LIFT7","agent://www.mcarbi.com/AMR_LIFT7");
+	
