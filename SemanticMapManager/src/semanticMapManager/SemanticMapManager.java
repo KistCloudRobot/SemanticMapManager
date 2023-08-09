@@ -137,11 +137,11 @@ public class SemanticMapManager extends ArbiAgent {
 	
 	public String getRobotContextReceiver(String robotID) {
 		String result = null;
-		
+//		System.out.println("robotID");
 		String num = robotID.substring(robotID.length() - 1);
 //		System.out.println(num);
 		int i = Integer.parseInt(num);
-		
+		//TODO
 		if (i <= 4) {
 			result = "agent://www.mcarbi.com/Local1";
 		} else if (i >= 5 && i <= 7) {
@@ -165,7 +165,7 @@ public class SemanticMapManager extends ArbiAgent {
 		String channelHost = "";
 		int port = 0;
 		if(args.length == 0) {
-			brokerAddress = "172.16.165.185";
+			brokerAddress = "172.16.165.77";
 //			brokerAddress = "192.168.100.11";
 			port = 61315;
 //			channelHost = "172.16.165.158";

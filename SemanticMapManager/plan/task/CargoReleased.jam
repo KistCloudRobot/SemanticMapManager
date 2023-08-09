@@ -7,6 +7,7 @@ PLAN PERFORM CargoReleased($cargoID, $stationVertex) {
 	BODY :
 		RETRACT On($cargoID, $rackID);
 		RETRACT cargoAt($cargoID, $stationVertex, $stationVertex);
-		RETRACT cargoState($cargoID, $state); 
-		ASSERT cargoState($cargoID, "None");
+		RETRIEVE cargoState($cargoID, $location, $state);
+		RETRACT cargoState($cargoID, $location,$state); 
+		ASSERT cargoState($cargoID, $location, "None");
 }

@@ -92,7 +92,6 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		PERFORM UpdateToLTM($robotID, "robotAt");
 		
 		$localAddress = $smm.getRobotContextReceiver($robotID);
-
 		perform notify("logistic", $localAddress, $data);
 		perform notify("logistic", $agentAddress, $data);
 	UTILITY : 100;
