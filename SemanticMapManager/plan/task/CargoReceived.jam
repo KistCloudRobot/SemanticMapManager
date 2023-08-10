@@ -2,13 +2,12 @@
 PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 	ID : "CargoReceived"
 	PRECONDITION :
-		FACT cargoState($cargoID, $state);
+		FACT cargoState($cargoID, $location, $state);
 		$state == "None";
 	BODY :
 		RETRIEVE rackAt($rackID, $stationVertex, $stationVertex);
 		ASSERT On($cargoID, $rackID);
 		ASSERT cargoAt($cargoID, $stationVertex, $stationVertex);
-		RETRIEVE cargoState($cargoID, $location, $state);
 		RETRACT cargoState($cargoID, $location,$state); 
 		ASSERT cargoState($cargoID, $location, "Exist");
 }

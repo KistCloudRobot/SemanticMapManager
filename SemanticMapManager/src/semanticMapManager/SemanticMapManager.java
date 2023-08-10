@@ -127,9 +127,9 @@ public class SemanticMapManager extends ArbiAgent {
 		String num = objectID.substring(objectID.length() - 2);
 //		System.out.println(num);
 		int i = Integer.parseInt(num);
-		if (i <= 20) {
+		if (i <= 10) {
 			result = "agent://www.mcarbi.com/Local1";
-		} else if (i > 20 && i <= 40) {
+		} else if (i > 10 && i <= 20) {
 			result = "agent://www.mcarbi.com/Local2";
 		}
 		return result;

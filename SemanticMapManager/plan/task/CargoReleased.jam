@@ -2,12 +2,11 @@
 PLAN PERFORM CargoReleased($cargoID, $stationVertex) {
 	ID : "CargoReleased"
 	PRECONDITION :
-		FACT cargoState($cargoID, $state);
+		FACT cargoState($cargoID, $location, $state);
 		$state == "Exist";
 	BODY :
 		RETRACT On($cargoID, $rackID);
 		RETRACT cargoAt($cargoID, $stationVertex, $stationVertex);
-		RETRIEVE cargoState($cargoID, $location, $state);
 		RETRACT cargoState($cargoID, $location,$state); 
 		ASSERT cargoState($cargoID, $location, "None");
 }
