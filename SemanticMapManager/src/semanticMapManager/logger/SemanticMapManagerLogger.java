@@ -11,7 +11,10 @@ import uos.ai.jam.Goal;
 import uos.ai.jam.IntentionStructureChangeListener;
 import uos.ai.jam.Interpreter;
 import uos.ai.jam.WorldModelChangeListener;
+import uos.ai.jam.expression.Binding;
+import uos.ai.jam.expression.Expression;
 import uos.ai.jam.expression.Relation;
+import uos.ai.jam.expression.Variable;
 import uos.ai.jam.plan.APLElement;
 import uos.ai.jam.plan.action.GoalAction;
 
@@ -92,48 +95,83 @@ public class SemanticMapManagerLogger implements WorldModelChangeListener, Inten
 		return newArgument;
 	}
 	
-	public GoalArgument generateGoalArgument(Goal goal){
+	public GoalArgument generateGoalArgument(APLElement g){
+		GoalAction action = g.getFromGoal().getGoalAction();
+		Binding b = g.getBinding();
+		Variable[] variables = b.getVariables();
+		if(action == null) {
+			return null;
+		}else {
+			GoalArgument newArgument = new GoalArgument();
+			newArgument.setName(g.getFromGoal().getName());
+			Relation goalRelation = g.getFromGoal().getGoalAction().getGoal();
+			for(int i = 0; i < goalRelation.getArity();i++){
+				Expression e = goalRelation.getArg(i);
+				if (e.isVariable()) {
+					Expression v = null;
+					for(Variable var : variables) {
+						if (var.getName().equals(e.toString())) {
+							v = b.getValue(var);
+							break;
+						}
+					}
+					if (v == null) {
+						newArgument.addExpression(e.toString());
+					} else newArgument.addExpression(v.toString());
+				} else {
+					newArgument.addExpression(e.toString());
+				}
+			}
+			return newArgument;
+		}
+	}
+	
+	public GoalArgument generateNewGoalArgument(Goal goal){
 		GoalAction action = goal.getGoalAction();
 		if(action == null) {
 			return null;
 		}else {
 			GoalArgument newArgument = new GoalArgument();
 			newArgument.setName(goal.getName());
-
 			Relation goalRelation = goal.getGoalAction().getGoal();
 			for(int i = 0; i < goalRelation.getArity();i++){
-				newArgument.addExpression(goalRelation.getArg(i).toString());
+				Expression e = goalRelation.getArg(i);
+				if (e.isVariable()) {
+					newArgument.addExpression(e.getName());
+				} else {
+					newArgument.addExpression(e.toString());					
+				}
+	
 			}
-			
 			return newArgument;
 		}
 		
 	}
 	
-	
 	@Override
 	public void goalAdded(Goal goal) {
 		//System.out.println("notified New Goal " + goal.getGoalAction());
-		GoalArgument ga = generateGoalArgument(goal);
+		GoalArgument ga = generateNewGoalArgument(goal);
 		if(ga != null)
 			newGoalAction.execute(ga);
 	}
-
 	@Override
 	public void goalRemoved(Goal goal) {
 		//System.out.println("notified Goal Removal");
-		GoalArgument ga = generateGoalArgument(goal);
+		GoalArgument ga;
+		if (goal.getIntention() != null) {
+			ga = generateGoalArgument(goal.getIntention());
+		} else {
+			ga = generateNewGoalArgument(goal);
+		}
 		if(ga != null)
 			unpostGoalAction.execute(ga);
 	}
-
 	
-
-
 	@Override
 	public void intended(APLElement goal) {
 		// TODO Auto-generated method stub
-		GoalArgument ga = generateGoalArgument(goal.getFromGoal());
+		GoalArgument ga = generateGoalArgument(goal);
 		if(ga != null)
 			intendAction.execute(ga);
 	}

@@ -3,7 +3,7 @@ PREFIXES:
 
 
 PLAN PERFORM initialize(){
-	ID: "http://www.arbi.com//BuiltInPlan#SendInitCargoAndRack"
+	ID: "SendInitCargoAndRack"
 	PRECONDITION:
 		FACT SemanticMapManager($smm);
 	BODY:

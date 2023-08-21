@@ -1,26 +1,16 @@
 package semanticMapManager;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import kr.ac.uos.ai.agentCommunicationFramework.BrokerType;
-import kr.ac.uos.ai.agentCommunicationFramework.agent.Agent;
 import kr.ac.uos.ai.agentCommunicationFramework.agent.AgentExecutor;
-import kr.ac.uos.ai.agentCommunicationFramework.agent.ChannelFactory;
-import kr.ac.uos.ai.agentCommunicationFramework.agent.communication.Channel;
 import kr.ac.uos.ai.agentCommunicationFramework.model.GLFactory;
 import kr.ac.uos.ai.agentCommunicationFramework.model.generailzedList.GeneralizedList;
 import kr.ac.uos.ai.agentCommunicationFramework.model.parser.ParseException;
 import kr.ac.uos.ai.arbi.agent.ArbiAgent;
 import kr.ac.uos.ai.arbi.agent.ArbiAgentExecutor;
-import kr.ac.uos.ai.arbi.ltm.DataSource;
 import semanticMapManager.logger.SemanticMapManagerLogger;
-import semanticMapManager.model.Vertex;
 import semanticMapManager.utility.GLMessageManager;
 import semanticMapManager.utility.JAMUtilityManager;
 import semanticMapManager.utility.RecievedMessage;
@@ -37,8 +27,6 @@ public class SemanticMapManager extends ArbiAgent {
 	
 	private BlockingQueue<RecievedMessage> messageQueue;
 	public static String MY_mcARBI_AGENT_ADRRESS = "agent://www.mcarbi.com/SemanticMapManager";
-//	private Map<Integer, Vertex> vertexMap;
-//	private Float threashHold;
 	private MyDataSource dataSource;
 	
 	public SemanticMapManager(String channelHost, String brokerAddress, int brokerPort) {
