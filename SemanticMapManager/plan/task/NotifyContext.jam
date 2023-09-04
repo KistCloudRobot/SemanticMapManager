@@ -1,6 +1,14 @@
 PREFIXES:
 		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
 
+PLAN PERFORM NotifyContext($contextName, $robotID){
+	ID: "http://www.arbi.com//BuiltInPlan#notifyFailed"
+	PRECONDITION:
+	BODY:
+		System.out.println("notify context failed");
+		System.out.println("$contextName "+$contextName);
+		System.out.println("$robotID "+$robotID);
+}
 
 PLAN PERFORM NotifyContext($contextName, $robotID){
 	ID: "http://www.arbi.com//BuiltInPlan#notifyRobotStatus"
@@ -25,6 +33,7 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		$contextName =="batteryRemain";
 		FACT batteryRemain($robotID, $v1);
 	BODY:
+		
 		$data = "(UpdateContext (context (batteryRemain \"" + $robotID + "\" $oldV1)) (context (batteryRemain \"" + $robotID +"\" " + $v1 + ")))";
 		
 		PERFORM UpdateToLTM($robotID, "batteryRemain");
@@ -32,6 +41,22 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		perform notify("logistic", $receiver, $data);
 	UTILITY : 100;
 }
+
+PLAN PERFORM NotifyContext($contextName, $robotID){
+	ID: "http://www.arbi.com//BuiltInPlan#notifyRobotPosition"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		$contextName == "robotPosition";
+		FACT robotPosition($robotID, $v1, $v2);
+	BODY:
+		$data = "(UpdateContext (context (robotPosition \"" + $robotID + "\" $oldV1 $oldV2)) (context (robotPosition \"" + $robotID +"\" " + $v1 + " " + $v2 + ")))";
+		
+		PERFORM UpdateToLTM($robotID, "robotPosition");
+		$receiver = $smm.getRobotContextReceiver($robotID);
+		perform notify("logistic", $receiver, $data);
+	UTILITY : 100;
+}
+
 
 PLAN PERFORM NotifyContext($contextName, $robotID){
 	ID: "http://www.arbi.com//BuiltInPlan#notifyRobotVelocity"
@@ -128,3 +153,4 @@ PLAN PERFORM NotifyContext($contextName, $cargoID){
 		perform notify("logistic", $receiver, $data);
 	UTILITY : 100;
 }
+

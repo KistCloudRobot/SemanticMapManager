@@ -6,6 +6,6 @@ PLAN CONCLUDE robotDegree($robotID, $degree){
 	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotDegree"
 	PRECONDITION:
 	BODY:
-		PERFORM NotifyContext("robotDegree", $robotID);
+		//PERFORM NotifyContext("robotDegree", $robotID);
 	UTILITY : 200;
 }

@@ -161,6 +161,7 @@ public class SemanticMapManager extends ArbiAgent {
 			brokerAddress = args[1];
 		}
 		SemanticMapManager agent = new SemanticMapManager(brokerAddress, brokerAddress, port);
+//		SemanticMapManager agent = new SemanticMapManager("127.0.0.1", brokerAddress, port);
 		
 	}
 

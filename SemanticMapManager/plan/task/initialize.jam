@@ -3,8 +3,19 @@ PREFIXES:
 
 
 PLAN PERFORM initialize(){
+	ID: "initialize"
+	PRECONDITION:
+		FACT Assembly;
+		FACT SemanticMapManager($smm);
+	BODY:
+		System.out.println("hi");
+	UTILITY : 1;
+}
+
+PLAN PERFORM initialize(){
 	ID: "SendInitCargoAndRack"
 	PRECONDITION:
+		FACT Logistic;
 		FACT SemanticMapManager($smm);
 	BODY:
 		System.out.println("send init cargo and rack1");
@@ -57,10 +68,7 @@ PLAN PERFORM initialize(){
 		PERFORM NotifyContext("cargoAt", "http://www.arbi.com/ontologies/arbi.owl#bin_12");
 		$smm.sleepAwhile(100);
 		System.out.println("send init cargo and rack17");
-		PERFORM NotifyContext("cargoAt", "http://www.arbi.com/ontologies/arbi.owl#bin_13");
-		$smm.sleepAwhile(100);
-		System.out.println("send init cargo and rack18");
-
+		
 		System.out.println("send init cargo and rack complete");
 		
 
@@ -68,6 +76,10 @@ PLAN PERFORM initialize(){
 }
 
 /*
+		PERFORM NotifyContext("cargoAt", "http://www.arbi.com/ontologies/arbi.owl#bin_13");
+		$smm.sleepAwhile(100);
+		System.out.println("send init cargo and rack18");
+
 		PERFORM NotifyContext("cargoAt", "http://www.arbi.com/ontologies/arbi.owl#bin_06");
 		$smm.sleepAwhile(100);
 		PERFORM NotifyContext("cargoAt", "http://www.arbi.com/ontologies/arbi.owl#bin_07");

@@ -30,3 +30,24 @@ PLAN CONCLUDE cargoAt($cargoID, $v1, $v2){
 		PERFORM CargoReleased($cargoID, $v1);
 	UTILITY : 220;
 }
+
+PLAN CONCLUDE cargoAt($cargoID, $v1, $v2){
+	ID: "http://www.arbi.com//BuiltInPlan#cargoReleasingAtStation1003"
+	PRECONDITION:
+		$v1 == 1003;
+		$v2 == 1003;
+	BODY:
+		PERFORM NotifyContext("cargoAt", $cargoID);
+		PERFORM CargoReleased($cargoID, $v1);
+	UTILITY : 220;
+}
+PLAN CONCLUDE cargoAt($cargoID, $v1, $v2){
+	ID: "http://www.arbi.com//BuiltInPlan#cargoReleasingAtStation1004"
+	PRECONDITION:
+		$v1 == 1004;
+		$v2 == 1004;
+	BODY:
+		PERFORM NotifyContext("cargoAt", $cargoID);
+		PERFORM CargoReleased($cargoID, $v1);
+	UTILITY : 220;
+}

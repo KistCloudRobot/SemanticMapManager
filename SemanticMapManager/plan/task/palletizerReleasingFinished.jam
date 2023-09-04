@@ -1,40 +1,22 @@
 PREFIXES:
 		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
 
-PLAN CONCLUDE palletizerReleasingFinished($robotID, $stationVertex) {
-	ID: "http://www.arbi.com//palletizerReleasingFinishedAtStation1003"
-	PRECONDITION:
-		FACT GLUtility($glUtility);
-		FACT ExtraUtility($helper);
-		FACT  isro:local2Agent($local);
-		FACT isro:agent($agent);
-		$stationVertex == 1003;
-	BODY:
-		PERFORM isro:startLog("CONCLUDE", "palletizerReleasingFinished");
-		$goalID = $helper.getGoalID($agent);
-		$data = "(context (releasedCargo \"" +$cargoID+ "\" \"http://www.arbi.com/ontologies/arbi.owl#station1003\" \""+$goalID +"\"))";
-		PERFORM inform("logistic",$local, $data);
-		RETRACT palletizerReleasingFinished($robotID, $stationVertex);
-		
-		PERFORM isro:endLog("CONCLUDE", "palletizerReleasingFinished");
-	UTILITY: 10000; 
-}
-PLAN CONCLUDE palletizerPackingFinished($robotID, $stationVertex) {
+PLAN CONCLUDE palletizerReleasingFinish($robotID, $stationVertex) {
 	ID: "http://www.arbi.com//palletizerReleasingFinishedAtStation1004"
 	PRECONDITION:
 		FACT GLUtility($glUtility);
 		FACT ExtraUtility($helper);
 		FACT  isro:local2Agent($local);
 		FACT isro:agent($agent);
-		$stationVertex == 1004;
+		$robotID == "Palletizer3";
 	BODY:
-		PERFORM isro:startLog("CONCLUDE", "palletizerPackingFinish");
+		PERFORM isro:startLog("CONCLUDE", "palletizerReleasingFinish -- 1004");
 		
 		$goalID = $helper.getGoalID($agent);
-		$data = "(context (releasedCargo \"" +$cargoID+ "\" \"http://www.arbi.com/ontologies/arbi.owl#station1004\" \""+$goalID +"\"))";
+		$data = "(context (releasedCargo \"noCargo\" \"http://www.arbi.com/ontologies/arbi.owl#station1004\" \""+$goalID +"\"))";
 		PERFORM inform("logistic",$local, $data);
 		RETRACT palletizerReleasingFinished($robotID, $stationVertex);
 		
 		PERFORM isro:endLog("CONCLUDE", "palletizerReleasingFinished");
-	UTILITY: 10000; 
+	UTILITY: 10001; 
 }
