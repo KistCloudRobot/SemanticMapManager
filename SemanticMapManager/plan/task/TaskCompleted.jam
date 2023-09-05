@@ -1,14 +1,14 @@
 PREFIXES:
 		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
 
-PLAN CONCLUDE TaskCompleted($goalID) {
+PLAN CONCLUDE TaskCompleted($env, $goalID) {
 	ID: "http://www.arbi.com//TaskCompleted"
 	PRECONDITION :
 		FACT SemanticMapManager($smm);
 	BODY:
 		PERFORM isro:startLog("CONCLUDE", "TaskCompleted");
 		
-		$data = "(TaskCompleted \"" + $goalID + "\")";
+		$data = "(TaskCompleted \"" + $env + "\" \"" + $goalID + "\")";
 		
 		$smm.assertToLTM($data);
 		

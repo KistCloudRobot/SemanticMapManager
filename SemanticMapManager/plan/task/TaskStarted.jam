@@ -1,0 +1,19 @@
+PREFIXES:
+		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+
+PLAN CONCLUDE TaskStarted($env, $goalID) {
+	ID: "http://www.arbi.com//TaskStarted"
+	PRECONDITION :
+		FACT SemanticMapManager($smm);
+	BODY:
+		PERFORM isro:startLog("CONCLUDE", "TaskStarted");
+		
+		$data = "(TaskStarted \""+ $env+"\" \"" + $goalID + "\")";
+		
+		$smm.assertToLTM($data);
+		
+		PERFORM isro:endLog("CONCLUDE", "TaskStarted");
+	EFFECTS :
+		RETRACT TaskStarted($goalID);
+	UTILITY: 10000; 
+}
