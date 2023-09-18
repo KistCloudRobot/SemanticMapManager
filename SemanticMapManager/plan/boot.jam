@@ -11,6 +11,9 @@ GOALS:
 FACTS:
 	FACT LOG;
 	FACT CURRENT_TIME (0);
+	FACT Isaac(1);
+	FACT Potenit(1);
+	FACT Logistic;
 
 OBSERVER: {
 	UPDATE (CURRENT_TIME ($time)) (CURRENT_TIME (System.currentTimeMillis()));
@@ -32,12 +35,9 @@ PLAN PERFORM boot() {
 		PERFORM loadPlanPackage();
 		System.out.println("---Load Complete---");
 		
-		ASSERT Logistic;
-		//ASSERT Assembly;
-		
 		PERFORM ChannelInit();
 		PERFORM initialize();
 		System.out.println("---Boot Complete---");
-		//ASSERT palletizerPackingFinished("Palletizer1",1);
+
 	UTILITY : 1000;
 }

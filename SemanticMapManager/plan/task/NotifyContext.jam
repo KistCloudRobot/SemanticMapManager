@@ -19,7 +19,7 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 	BODY:
 		$data = "(UpdateContext (context (robotStatus \"" + $robotID + "\" $oldV1)) (context (robotStatus \"" + $robotID +"\" \"" + $v1 + "\")))";
 		
-		PERFORM UpdateToLTM($robotID, "robotStatus");
+		//PERFORM UpdateToLTM($robotID, "robotStatus");
 		$receiver = $smm.getRobotContextReceiver($robotID);
 		perform notify("logistic", $receiver, $data);
 	UTILITY : 100;
@@ -83,7 +83,7 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 	BODY:
 		$data = "(UpdateContext (context (robotDegree \"" + $robotID + "\" $oldV1)) (context (robotDegree \"" + $robotID +"\" " + $v1 + ")))";
 		
-		PERFORM UpdateToLTM($robotID, "robotDegree");
+		//PERFORM UpdateToLTM($robotID, "robotDegree");
 		$receiver = $smm.getRobotContextReceiver($robotID);
 		perform notify("logistic", $receiver, $data);
 	UTILITY : 100;
@@ -99,7 +99,7 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 	BODY:
 		$data = "(UpdateContext (context (robotLoading \"" + $robotID + "\" $oldV1)) (context (robotLoading \"" + $robotID +"\" \"" + $v1 + "\")))";
 
-		PERFORM UpdateToLTM($robotID, "robotLoading");
+		//PERFORM UpdateToLTM($robotID, "robotLoading");
 		$receiver = $smm.getRobotContextReceiver($robotID);
 		perform notify("logistic", $receiver, $data);
 	UTILITY : 100;
@@ -133,7 +133,7 @@ PLAN PERFORM NotifyContext($contextName, $rackID){
 		$data = "(UpdateContext (context (rackAt \"" + $rackID + "\" $oldV1 $oldV2)) (context (rackAt \"" + $rackID +"\" " + $v1 + " " + $v2 +")))";
 		
 		$receiver = $smm.getObjectContextReceiver($rackID);
-		PERFORM UpdateToLTM($robotID, "rackAt");
+		PERFORM UpdateToLTM($rackID, "rackAt");
 		perform notify("logistic", $receiver, $data);
 	UTILITY : 100;
 }
@@ -149,7 +149,7 @@ PLAN PERFORM NotifyContext($contextName, $cargoID){
 		$data = "(UpdateContext (context (cargoAt \"" + $cargoID + "\" $oldV1 $oldV2)) (context (cargoAt \"" + $cargoID +"\" " + $v1 + " " + $v2 +")))";
 		
 		$receiver = $smm.getObjectContextReceiver($cargoID);
-		PERFORM UpdateToLTM($robotID, "cargoAt");
+		PERFORM UpdateToLTM($cargoID, "cargoAt");
 		perform notify("logistic", $receiver, $data);
 	UTILITY : 100;
 }

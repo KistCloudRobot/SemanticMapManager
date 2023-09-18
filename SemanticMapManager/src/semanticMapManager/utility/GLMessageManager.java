@@ -470,7 +470,7 @@ public class GLMessageManager {
 					}
 
 				}
-
+				
 				assertFact(name, expressionList);
 
 			} catch (ParseException e) {

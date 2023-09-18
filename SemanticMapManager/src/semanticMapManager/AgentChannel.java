@@ -5,6 +5,7 @@ import java.util.concurrent.BlockingQueue;
 import kr.ac.uos.ai.agentCommunicationFramework.BrokerType;
 import kr.ac.uos.ai.agentCommunicationFramework.agent.Agent;
 import kr.ac.uos.ai.agentCommunicationFramework.agent.communication.Channel;
+import kr.ac.uos.ai.agentCommunicationFramework.model.rule.action.Notify;
 import semanticMapManager.utility.RecievedMessage;
 
 public class AgentChannel extends Channel{

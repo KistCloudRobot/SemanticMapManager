@@ -1,0 +1,54 @@
+PREFIXES:
+		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+
+
+PLAN PERFORM LoadIsaacEnv(){
+	ID: "LoadIsaacEnv1"
+	PRECONDITION:
+		FACT ExtraUtility($helper);
+		FACT Isaac($v);
+		$v == 1;
+	BODY:
+		$helper.loadPlan("./plan/environment/Isaac1.jam");
+	UTILITY : 1;
+}
+PLAN PERFORM LoadIsaacEnv(){
+	ID: "LoadIsaacEnv2"
+	PRECONDITION:
+		FACT ExtraUtility($helper);
+		FACT Isaac($v);
+		$v == 2;
+	BODY:
+		$helper.loadPlan("./plan/environment/Isaac2.jam");
+	UTILITY : 1;
+}
+PLAN PERFORM LoadIsaacEnv(){
+	ID: "LoadIsaacEnv3"
+	PRECONDITION:
+		FACT ExtraUtility($helper);
+		FACT Isaac($v);
+		$v == 3;
+	BODY:
+		$helper.loadPlan("./plan/environment/Isaac3.jam");
+	UTILITY : 1;
+}
+PLAN PERFORM LoadIsaacEnv(){
+	ID: "LoadIsaacEnv4"
+	PRECONDITION:
+		FACT ExtraUtility($helper);
+		FACT Isaac($v);
+		$v == 4;
+	BODY:
+		$helper.loadPlan("./plan/environment/Isaac4.jam");
+	UTILITY : 1;
+}
+PLAN PERFORM LoadIsaacEnv(){
+	ID: "LoadIsaacEnv5"
+	PRECONDITION:
+		FACT ExtraUtility($helper);
+		FACT Isaac($v);
+		$v == 5;
+	BODY:
+		$helper.loadPlan("./plan/environment/Isaac5.jam");
+	UTILITY : 1;
+}

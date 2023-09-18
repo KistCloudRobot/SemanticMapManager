@@ -75,7 +75,7 @@ PLAN PERFORM UpdateToLTM($robotID, $contextName){
 		$contextName =="robotDegree";
 		FACT robotDegree($robotID, $v1);
 	BODY:
-		$ltmData = "(updateFact (robotDegree \"" + $robotID + "\" $oldV1) (robotDegree \"" + $robotID +"\" \"" + $v1 + "\"))";
+		$ltmData = "(updateFact (robotDegree \"" + $robotID + "\" $oldV1) (robotDegree \"" + $robotID +"\" " + $v1 + "))";
 		$smm.updateToLTM($ltmData);
 		
 	UTILITY : 100;
@@ -88,7 +88,7 @@ PLAN PERFORM UpdateToLTM($robotID, $contextName){
 		$contextName =="robotVelocity";
 		FACT robotVelocity($robotID, $v1);
 	BODY:
-		$ltmData = "(updateFact (robotVelocity \"" + $robotID + "\" $oldV1) (robotVelocity \"" + $robotID +"\" \"" + $v1 + "\"))";
+		$ltmData = "(updateFact (robotVelocity \"" + $robotID + "\" $oldV1) (robotVelocity \"" + $robotID +"\" " + $v1 + "))";
 		$smm.updateToLTM($ltmData);
 		
 	UTILITY : 100;
@@ -102,7 +102,7 @@ PLAN PERFORM UpdateToLTM($robotID, $contextName){
 		$contextName =="batteryRemain";
 		FACT batteryRemain($robotID, $v1);
 	BODY:
-		$ltmData = "(updateFact (batteryRemain \"" + $robotID + "\" $oldV1) (batteryRemain \"" + $robotID +"\" \"" + $v1 + "\"))";
+		$ltmData = "(updateFact (batteryRemain \"" + $robotID + "\" $oldV1) (batteryRemain \"" + $robotID +"\" " + $v1 + "))";
 		$smm.updateToLTM($ltmData);
 		
 	UTILITY : 100;
