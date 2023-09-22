@@ -7,9 +7,8 @@ PLAN CONCLUDE updateRobotPath($robotID, $path){
 	PRECONDITION:
 		FACT SemanticMapManager($smm);
 	BODY:
-		RETRACT robotPath($robotID, $oldPath);
-		ASSERT robotPath($robotID, $path);
-	UTILITY : 200;
+		UPDATE (robotPath($robotID, $oldPath)) (robotPath($robotID, $path));
+	UTILITY : 100;
 	EFFECTS :
 		RETRACT updateRobotPath($robotID, $path);
 }

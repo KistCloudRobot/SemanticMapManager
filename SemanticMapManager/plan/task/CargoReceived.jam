@@ -1,13 +1,74 @@
 
 PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
-	ID : "CargoReceived"
+	ID : "CargoReceivedStation1"
 	PRECONDITION :
 		FACT cargoState($cargoID, $location, $state);
 		$state == "None";
+		$stationVertex == 1;
 	BODY :
-		RETRIEVE rackAt($rackID, $stationVertex, $stationVertex);
+	
+		PERFORM isro:startLog("PERFORM", "CargoReceived  1");
+		
+		PERFORM isro:argumentLog("newCargo", $cargoID);
+		PERFORM isro:argumentLog("stationVertex", $stationVertex);
+		RETRIEVE rackAt($rackID, 1, 1);
+		
+		PERFORM isro:argumentLog("rackID", $rackID);
 		ASSERT On($cargoID, $rackID);
 		ASSERT cargoAt($cargoID, $stationVertex, $stationVertex);
-		RETRACT cargoState($cargoID, $location,$state); 
+		RETRACT cargoState($cargoID, $location, $state); 
 		ASSERT cargoState($cargoID, $location, "Exist");
+		
+		PERFORM isro:endLog("PERFORM", "CargoReceived");
 }
+
+
+PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
+	ID : "CargoReceivedStation2"
+	PRECONDITION :
+		FACT cargoState($cargoID, $location, $state);
+		$state == "None";
+		$stationVertex == 2;
+	BODY :
+	
+		PERFORM isro:startLog("PERFORM", "CargoReceived  2");
+		
+		PERFORM isro:argumentLog("newCargo", $cargoID);
+		PERFORM isro:argumentLog("stationVertex", $stationVertex);
+		RETRIEVE rackAt($rackID, 2, 2);
+		
+		PERFORM isro:argumentLog("rackID", $rackID);
+		ASSERT On($cargoID, $rackID);
+		ASSERT cargoAt($cargoID, $stationVertex, $stationVertex);
+		RETRACT cargoState($cargoID, $location, $state); 
+		ASSERT cargoState($cargoID, $location, "Exist");
+		
+		PERFORM isro:endLog("PERFORM", "CargoReceived");
+}
+
+
+
+
+PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
+	ID : "CargoReceivedStation1001"
+	PRECONDITION :
+		FACT cargoState($cargoID, $location, $state);
+		$state == "None";
+		$stationVertex == 1001;
+	BODY :
+	
+		PERFORM isro:startLog("PERFORM", "CargoReceived");
+		
+		PERFORM isro:argumentLog("newCargo", $cargoID);
+		PERFORM isro:argumentLog("stationVertex", $stationVertex);
+		RETRIEVE rackAt($rackID, 1001, 1001);
+		
+		PERFORM isro:argumentLog("rackID", $rackID);
+		ASSERT On($cargoID, $rackID);
+		ASSERT cargoAt($cargoID, $stationVertex, $stationVertex);
+		RETRACT cargoState($cargoID, $location, $state); 
+		ASSERT cargoState($cargoID, $location, "Exist");
+		
+		PERFORM isro:endLog("PERFORM", "CargoReceived");
+}
+

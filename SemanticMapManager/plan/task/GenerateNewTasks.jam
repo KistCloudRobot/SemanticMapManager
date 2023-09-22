@@ -1,0 +1,20 @@
+PLAN PERFORM GenerateNewTasks() {
+	ID: "http://www.arbi.com//GenerateNewTasks"
+	PRECONDITION:
+		FACT TaskGenerator($generator);
+		FACT isro:local1Agent($local);
+	BODY:
+		PERFORM isro:startLog("PERFORM", "GenerateNewTasks");
+
+		PERFORM CheckStationStatus("http://www.arbi.com/ontologies/arbi.owl#station1", 1, $status1);
+		PERFORM CheckStationStatus("http://www.arbi.com/ontologies/arbi.owl#station2", 2, $status2);
+		PERFORM CheckStationStatus("http://www.arbi.com/ontologies/arbi.owl#station3", 3, $status3);
+		PERFORM CheckStationStatus("http://www.arbi.com/ontologies/arbi.owl#station4", 4, $status4);
+		
+		$data = $generator.generateNewTasks($status1, $status2, $status3, $status4);
+		
+		PERFORM inform("logistic",$local, $data);
+		
+		PERFORM isro:endLog("PERFORM", "GenerateNewTasks");
+	UTILITY: 10; 
+}

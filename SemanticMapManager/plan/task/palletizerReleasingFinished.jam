@@ -15,8 +15,10 @@ PLAN CONCLUDE palletizerReleasingFinish($robotID, $stationVertex) {
 		$goalID = $helper.getGoalID($agent);
 		$data = "(context (releasedCargo \"noCargo\" \"http://www.arbi.com/ontologies/arbi.owl#station1004\" \""+$goalID +"\"))";
 		PERFORM inform("logistic",$local, $data);
-		RETRACT palletizerReleasingFinished($robotID, $stationVertex);
+		
 		
 		PERFORM isro:endLog("CONCLUDE", "palletizerReleasingFinished");
-	UTILITY: 10001; 
+	UTILITY: 11;
+	EFFECTS:
+		RETRACT palletizerReleasingFinished($robotID, $stationVertex);  
 }

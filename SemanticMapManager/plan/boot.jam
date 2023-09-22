@@ -12,7 +12,7 @@ FACTS:
 	FACT LOG;
 	FACT CURRENT_TIME (0);
 	FACT Isaac(1);
-	FACT Potenit(1);
+	FACT Potenit(2);
 	FACT Logistic;
 
 OBSERVER: {
@@ -38,6 +38,6 @@ PLAN PERFORM boot() {
 		PERFORM ChannelInit();
 		PERFORM initialize();
 		System.out.println("---Boot Complete---");
-
+		
 	UTILITY : 1000;
 }

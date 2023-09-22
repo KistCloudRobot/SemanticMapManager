@@ -2,6 +2,27 @@ PREFIXES:
 		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
 
 PLAN CONCLUDE TaskCompleted($env, $goalID) {
+	ID: "http://www.arbi.com//TaskCompletedReal"
+	PRECONDITION :
+		FACT SemanticMapManager($smm);
+		$env == "real";
+	BODY:
+		PERFORM isro:startLog("CONCLUDE", "TaskCompleted");
+		
+		$data = "(TaskCompleted \"" + $env + "\" \"" + $goalID + "\")";
+		PERFORM isro:argumentLog("TaskCompleted",$data);
+		$smm.assertToLTM($data);
+		
+		RETRACT OccupiedStation($goalID, $location);
+		
+		PERFORM isro:endLog("CONCLUDE", "TaskCompleted");
+	EFFECTS :
+		RETRACT TaskCompleted($env, $goalID);
+	UTILITY: 11; 
+}
+
+
+PLAN CONCLUDE TaskCompleted($env, $goalID) {
 	ID: "http://www.arbi.com//TaskCompleted"
 	PRECONDITION :
 		FACT SemanticMapManager($smm);
@@ -9,11 +30,11 @@ PLAN CONCLUDE TaskCompleted($env, $goalID) {
 		PERFORM isro:startLog("CONCLUDE", "TaskCompleted");
 		
 		$data = "(TaskCompleted \"" + $env + "\" \"" + $goalID + "\")";
-		
+		PERFORM isro:argumentLog("TaskCompleted",$data);
 		$smm.assertToLTM($data);
 		
 		PERFORM isro:endLog("CONCLUDE", "TaskCompleted");
 	EFFECTS :
-		RETRACT TaskCompleted($goalID);
-	UTILITY: 10000; 
+		RETRACT TaskCompleted($env, $goalID);
+	UTILITY: 10; 
 }

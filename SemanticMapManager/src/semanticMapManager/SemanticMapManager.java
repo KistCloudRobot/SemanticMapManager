@@ -14,6 +14,7 @@ import semanticMapManager.logger.SemanticMapManagerLogger;
 import semanticMapManager.utility.GLMessageManager;
 import semanticMapManager.utility.JAMUtilityManager;
 import semanticMapManager.utility.RecievedMessage;
+import semanticMapManager.utility.TaskGenerator;
 import semanticMapManager.utility.VertexCalcurator;
 import uos.ai.jam.Interpreter;
 import uos.ai.jam.JAM;
@@ -23,6 +24,7 @@ public class SemanticMapManager extends ArbiAgent {
 	private GLMessageManager msgManager;
 	private MultiAgentCommunicator agentCommunicator;
 	private VertexCalcurator calcurator;
+	private TaskGenerator taskGenerator;
 	private SemanticMapManagerLogger logger;
 	
 	private BlockingQueue<RecievedMessage> messageQueue;
@@ -34,6 +36,8 @@ public class SemanticMapManager extends ArbiAgent {
 		messageQueue = new LinkedBlockingQueue<RecievedMessage>();
 		dataSource = new MyDataSource(messageQueue);
 		calcurator = new VertexCalcurator();
+		
+		taskGenerator = new TaskGenerator();
 		
 		interpreter = JAM.parse(new String[] { "./plan/boot.jam" });
 		agentCommunicator = new MultiAgentCommunicator(messageQueue);
@@ -52,6 +56,8 @@ public class SemanticMapManager extends ArbiAgent {
 		msgManager.assertFact("ExtraUtility", new JAMUtilityManager(interpreter));
 		msgManager.assertFact("SemanticMapManager", this);
 		msgManager.assertFact("AgentCommunication", agentCommunicator);
+		
+		msgManager.assertFact("TaskGenerator", taskGenerator);
 		
 		
 		msgManager.assertFact("Channel", "base", agentCommunicator.getBaseChannel());
@@ -129,7 +135,6 @@ public class SemanticMapManager extends ArbiAgent {
 		String num = robotID.substring(robotID.length() - 1);
 //		System.out.println(num);
 		int i = Integer.parseInt(num);
-		//TODO
 		if (i <= 4) {
 			result = "agent://www.mcarbi.com/Local1";
 		} else if (i >= 5 && i <= 7) {
@@ -153,7 +158,8 @@ public class SemanticMapManager extends ArbiAgent {
 		String channelHost = "";
 		int port = 0;
 		if(args.length == 0) {
-			brokerAddress = "172.16.165.77";
+			brokerAddress = "127.0.0.1";
+//			brokerAddress = "172.16.165.77";
 //			brokerAddress = "192.168.100.11";
 			port = 61315;
 //			channelHost = "172.16.165.158";
