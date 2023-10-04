@@ -13,7 +13,12 @@ PLAN CONCLUDE palletizerPackingFinished($robotID, $stationVertex) {
 		RETRIEVE cargoState($cargoID, "potenit","None");
 		PERFORM CargoReceived($cargoID, $stationVertex);
 		
-		PERFORM GenerateNewTasks();
+		//PERFORM GenerateNewTasks();
+		
+		$goalID = $helper.getGoalID($agent);
+		$data = "(context (receivedCargo \"" +$cargoID+ "\" \"http://www.arbi.com/ontologies/arbi.owl#station"+ $stationVertex + "\" \""+$goalID +"\"))";
+		PERFORM inform("logistic",$local, $data);
+		
 		PERFORM isro:endLog("CONCLUDE", "palletizerPackingFinish");
 	UTILITY: 10; 
 	EFFECTS : 
