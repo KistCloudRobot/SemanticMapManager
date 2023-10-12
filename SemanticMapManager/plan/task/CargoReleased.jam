@@ -2,6 +2,7 @@
 PLAN PERFORM CargoReleased($cargoID, $stationVertex) {
 	ID : "CargoReleased"
 	PRECONDITION :
+		FACT SemanticMapManager($smm);
 		FACT cargoState($cargoID, $location, $state);
 		$state == "Exist";
 	BODY :
@@ -9,4 +10,6 @@ PLAN PERFORM CargoReleased($cargoID, $stationVertex) {
 		RETRACT cargoAt($cargoID, $stationVertex, $stationVertex);
 		RETRACT cargoState($cargoID, $location,$state); 
 		ASSERT cargoState($cargoID, $location, "None");
+		$data = "(cargoReleased \"" +$cargoID + "\")";
+		$smm.logContext($data);
 }

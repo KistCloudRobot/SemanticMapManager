@@ -2,6 +2,7 @@
 PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 	ID : "CargoReceivedStation1"
 	PRECONDITION :
+		FACT SemanticMapManager($smm);
 		FACT cargoState($cargoID, $location, $state);
 		$state == "None";
 		$stationVertex == 1;
@@ -19,6 +20,8 @@ PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 		RETRACT cargoState($cargoID, $location, $state); 
 		ASSERT cargoState($cargoID, $location, "Exist");
 		
+		$data = "(cargoReceived \"" +$cargoID + "\")";
+		$smm.logContext($data);
 		PERFORM isro:endLog("PERFORM", "CargoReceived");
 }
 
@@ -26,6 +29,7 @@ PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 	ID : "CargoReceivedStation2"
 	PRECONDITION :
+		FACT SemanticMapManager($smm);
 		FACT cargoState($cargoID, $location, $state);
 		$state == "None";
 		$stationVertex == 2;
@@ -43,6 +47,8 @@ PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 		RETRACT cargoState($cargoID, $location, $state); 
 		ASSERT cargoState($cargoID, $location, "Exist");
 		
+		$data = "(cargoReceived \"" +$cargoID + "\")";
+		$smm.logContext($data);
 		PERFORM isro:endLog("PERFORM", "CargoReceived");
 }
 
@@ -52,6 +58,7 @@ PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 	ID : "CargoReceivedStation1001"
 	PRECONDITION :
+		FACT SemanticMapManager($smm);
 		FACT cargoState($cargoID, $location, $state);
 		$state == "None";
 		$stationVertex == 1001;
@@ -69,6 +76,8 @@ PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 		RETRACT cargoState($cargoID, $location, $state); 
 		ASSERT cargoState($cargoID, $location, "Exist");
 		
+		$data = "(cargoReceived \"" +$cargoID + "\")";
+		$smm.logContext($data);
 		PERFORM isro:endLog("PERFORM", "CargoReceived");
 }
 

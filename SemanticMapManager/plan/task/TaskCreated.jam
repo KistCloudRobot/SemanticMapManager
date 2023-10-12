@@ -1,6 +1,6 @@
 PREFIXES:
 		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
-
+/*
 PLAN CONCLUDE TaskCreated($env, $goalID, $location, $goal) {
 	ID: "http://www.arbi.com//TaskCreatedReal"
 	PRECONDITION :
@@ -20,12 +20,12 @@ PLAN CONCLUDE TaskCreated($env, $goalID, $location, $goal) {
 		RETRACT TaskCreated($env, $goalID, $location, $goal);
 	UTILITY: 11; 
 }
-
+*/
 PLAN CONCLUDE TaskCreated($env, $goalID, $location, $goal) {
 	ID: "http://www.arbi.com//TaskCreated"
 	PRECONDITION :
 		FACT SemanticMapManager($smm);
-		$env == "simulation";
+//		$env == "simulation";
 	BODY:
 		PERFORM isro:startLog("CONCLUDE", "TaskCreated");
 		

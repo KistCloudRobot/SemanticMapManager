@@ -1,22 +1,78 @@
 PREFIXES:
 		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+		
+PLAN CONCLUDE robotLoading($robotID, $load){
+	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotLoadingAssertAlreadyOn"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		FACT robotAt($robotID, $v1, $v2);
+		FACT rackAt($rackID, $v1, $v2);
+		$load == "Loading";
+		FACT On($rackID, $robotID);
+		
+	BODY:
+		PERFORM NotifyContext("robotLoading", $robotID);
+	UTILITY : 230;
+}
 
+PLAN CONCLUDE robotLoading($robotID, $load){
+	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotLoadingAssertOnWithCargo"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		FACT robotAt($robotID, $v1, $v2);
+		FACT rackAt($rackID, $v1, $v2);
+		FACT cargoAt($cargoID, $v1, $v2);
+		$load == "Loading";
+	BODY:
+		ASSERT On($rackID, $robotID);
+		$data1 = "(robotLiftedRack \"" +$robotID + "\" \"" +$rackID + "\")";
+		$data2 = "(robotLiftedCargo \"" +$robotID + "\" \"" +$cargoID + "\")";
+		$smm.logContext($data1);
+		$smm.logContext($data2);
+		PERFORM NotifyContext("robotLoading", $robotID);
+	UTILITY : 220;
+}
 PLAN CONCLUDE robotLoading($robotID, $load){
 	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotLoadingAssertOn"
 	PRECONDITION:
+		FACT SemanticMapManager($smm);
 		FACT robotAt($robotID, $v1, $v2);
 		FACT rackAt($rackID, $v1, $v2);
 		$load == "Loading";
 		
 	BODY:
 		ASSERT On($rackID, $robotID);
+		$data1 = "(robotLiftedRack \"" +$robotID + "\" \"" +$rackID + "\")";
+		$smm.logContext($data1);
 		PERFORM NotifyContext("robotLoading", $robotID);
 	UTILITY : 210;
 }
 
 PLAN CONCLUDE robotLoading($robotID, $load){
-	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotLoading"
+	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotLoadingRetractOnWithCargo"
 	PRECONDITION:
+		FACT SemanticMapManager($smm);
+		FACT robotAt($robotID, $v1, $v2);
+		FACT rackAt($rackID, $v1, $v2);
+		$load == "Unloading";
+		FACT On($rackID, $robotID);
+		FACT cargoAt($cargoID, $v1, $v2);
+		
+	BODY:
+		RETRACT On($rackID, $robotID);
+		$data1 = "(robotPlacedRack \"" +$robotID + "\" \"" +$rackID + "\")";
+		$smm.logContext($data1);
+		$data2 = "(robotPlacedCargo \"" +$robotID + "\" \"" +$cargoID + "\")";
+		$smm.logContext($data2);
+		
+		PERFORM NotifyContext("robotLoading", $robotID);
+	UTILITY : 260;
+}
+
+PLAN CONCLUDE robotLoading($robotID, $load){
+	ID: "http://www.arbi.com//BuiltInPlan#concludeRobotLoadingRetractOn"
+	PRECONDITION:
+		FACT SemanticMapManager($smm);
 		FACT robotAt($robotID, $v1, $v2);
 		FACT rackAt($rackID, $v1, $v2);
 		$load == "Unloading";
@@ -24,6 +80,8 @@ PLAN CONCLUDE robotLoading($robotID, $load){
 		
 	BODY:
 		RETRACT On($rackID, $robotID);
+		$data1 = "(robotPlacedRack \"" +$robotID + "\" \"" +$rackID + "\")";
+		$smm.logContext($data1);
 		
 		PERFORM NotifyContext("robotLoading", $robotID);
 	UTILITY : 250;

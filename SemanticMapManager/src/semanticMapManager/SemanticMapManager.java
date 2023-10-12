@@ -10,6 +10,7 @@ import kr.ac.uos.ai.agentCommunicationFramework.model.generailzedList.Generalize
 import kr.ac.uos.ai.agentCommunicationFramework.model.parser.ParseException;
 import kr.ac.uos.ai.arbi.agent.ArbiAgent;
 import kr.ac.uos.ai.arbi.agent.ArbiAgentExecutor;
+import semanticMapManager.logger.MyLogger;
 import semanticMapManager.logger.SemanticMapManagerLogger;
 import semanticMapManager.utility.GLMessageManager;
 import semanticMapManager.utility.JAMUtilityManager;
@@ -26,6 +27,8 @@ public class SemanticMapManager extends ArbiAgent {
 	private VertexCalcurator calcurator;
 	private TaskGenerator taskGenerator;
 	private SemanticMapManagerLogger logger;
+	private MyLogger taskLogger;
+	private MyLogger contextLogger;
 	
 	private BlockingQueue<RecievedMessage> messageQueue;
 	public static String MY_mcARBI_AGENT_ADRRESS = "agent://www.mcarbi.com/SemanticMapManager";
@@ -38,6 +41,8 @@ public class SemanticMapManager extends ArbiAgent {
 		calcurator = new VertexCalcurator();
 		
 		taskGenerator = new TaskGenerator();
+		taskLogger = new MyLogger("task");
+		contextLogger = new MyLogger("context");
 		
 		interpreter = JAM.parse(new String[] { "./plan/boot.jam" });
 		agentCommunicator = new MultiAgentCommunicator(messageQueue);
@@ -144,13 +149,20 @@ public class SemanticMapManager extends ArbiAgent {
 	}
 	
 	public void assertToLTM(String content) {
-		dataSource.assertFact(content);
+//		dataSource.assertFact(content);
 	}
 	public void updateToLTM(String content) {
-		dataSource.updateFact(content);
+//		dataSource.updateFact(content);
 	}
 	public void subscribeToLTM(String rule) {
 		dataSource.subscribe(rule);
+	}
+	
+	public void logContext(String log) {
+		contextLogger.log(log);
+	}
+	public void logTask(String log) {
+		taskLogger.log(log);
 	}
 	
 	public static void main(String[] args) {

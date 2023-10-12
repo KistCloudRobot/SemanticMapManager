@@ -1,6 +1,6 @@
 PREFIXES:
 		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
-
+/*
 PLAN CONCLUDE TaskCompleted($env, $goalID) {
 	ID: "http://www.arbi.com//TaskCompletedReal"
 	PRECONDITION :
@@ -20,9 +20,9 @@ PLAN CONCLUDE TaskCompleted($env, $goalID) {
 		RETRACT TaskCompleted($env, $goalID);
 	UTILITY: 11; 
 }
+*/
 
-
-PLAN CONCLUDE TaskCompleted($env, $goalID) {
+PLAN CONCLUDE TaskCompleted($env, $goalID, $robotID) {
 	ID: "http://www.arbi.com//TaskCompleted"
 	PRECONDITION :
 		FACT SemanticMapManager($smm);
@@ -30,11 +30,65 @@ PLAN CONCLUDE TaskCompleted($env, $goalID) {
 		PERFORM isro:startLog("CONCLUDE", "TaskCompleted");
 		
 		$data = "(TaskCompleted \"" + $env + "\" \"" + $goalID + "\")";
+		$log = "(TaskCompleted \"" + $env + "\" \"" + $goalID + "\" \"" + $robotID + "\")";
 		PERFORM isro:argumentLog("TaskCompleted",$data);
 		$smm.assertToLTM($data);
-		
+		$smm.logTask($log);
 		PERFORM isro:endLog("CONCLUDE", "TaskCompleted");
 	EFFECTS :
-		RETRACT TaskCompleted($env, $goalID);
+		RETRACT TaskCompleted($env, $goalID, $robotID);
 	UTILITY: 10; 
+}
+
+
+PLAN CONCLUDE TaskCompleted($env, $goalID, $robotID) {
+	ID: "http://www.arbi.com//TaskCompletedPalletizer1"
+	PRECONDITION :
+		FACT SemanticMapManager($smm);
+		$robotID == "Pallertizer1";
+	BODY:
+		PERFORM isro:startLog("CONCLUDE", "TaskCompleted");
+		
+		$log = "(TaskCompleted \"" + $env + "\" \"" + $goalID + "\" \"" + $robotID + "\")";
+		PERFORM isro:argumentLog("TaskCompleted",$log);
+		$smm.logTask($log);
+		PERFORM isro:endLog("CONCLUDE", "TaskCompleted");
+	EFFECTS :
+		RETRACT TaskCompleted($env, $goalID, $robotID);
+	UTILITY: 11; 
+}
+
+
+PLAN CONCLUDE TaskCompleted($env, $goalID, $robotID) {
+	ID: "http://www.arbi.com//TaskCompletedPalletizer2"
+	PRECONDITION :
+		FACT SemanticMapManager($smm);
+		$robotID == "Pallertizer2";
+	BODY:
+		PERFORM isro:startLog("CONCLUDE", "TaskCompleted");
+		
+		$log = "(TaskCompleted \"" + $env + "\" \"" + $goalID + "\" \"" + $robotID + "\")";
+		PERFORM isro:argumentLog("TaskCompleted",$log);
+		$smm.logTask($log);
+		PERFORM isro:endLog("CONCLUDE", "TaskCompleted");
+	EFFECTS :
+		RETRACT TaskCompleted($env, $goalID, $robotID);
+	UTILITY: 11; 
+}
+
+PLAN CONCLUDE TaskCompleted($env, $goalID, $robotID) {
+	ID: "http://www.arbi.com//TaskCompletedPalletizer3"
+	PRECONDITION :
+		FACT SemanticMapManager($smm);
+		$robotID == "Pallertizer3";
+	BODY:
+		PERFORM isro:startLog("CONCLUDE", "TaskCompleted");
+		
+		$log = "(TaskCompleted \"" + $env + "\" \"" + $goalID + "\" \"" + $robotID + "\")";
+		PERFORM isro:argumentLog("TaskCompleted",$log);
+		$smm.logTask($log);
+		PERFORM isro:endLog("CONCLUDE", "TaskCompleted");
+	EFFECTS :
+		RETRACT TaskCompleted($env, $goalID, $robotID);
+	UTILITY: 11; 
 }

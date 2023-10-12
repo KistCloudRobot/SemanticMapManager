@@ -6,6 +6,7 @@ PLAN CONCLUDE palletizerPackingFinished($robotID, $stationVertex) {
 	PRECONDITION:
 		FACT GLUtility($glUtility);
 		FACT ExtraUtility($helper);
+		FACT isro:agent($agent);
 		FACT isro:local1Agent($local);
 		$robotID == "Palletizer1";
 	BODY:

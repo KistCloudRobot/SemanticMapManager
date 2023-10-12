@@ -11,7 +11,7 @@ GOALS:
 FACTS:
 	FACT LOG;
 	FACT CURRENT_TIME (0);
-	FACT Isaac(1);
+	FACT Isaac(2);
 	FACT Potenit(2);
 	FACT Logistic;
 

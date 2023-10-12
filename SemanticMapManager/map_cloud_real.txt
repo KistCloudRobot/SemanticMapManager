@@ -341,13 +341,13 @@ Vertex
 Vertex
 	name 149
 	type 0
-	pos 13.543 0.0 4.673
+	pos 12.343 0.0 4.673
 	edge 141
 	edge 150
 Vertex
 	name 150
 	type 0
-	pos 10.725 0.0 4.604
+	pos 9.525 0.0 4.604
 	edge 149
 	edge 2
 Vertex
