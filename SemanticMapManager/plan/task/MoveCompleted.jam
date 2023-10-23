@@ -1,0 +1,39 @@
+PREFIXES:
+		PREFIX isro: <http://www.arbi.com//BuiltInPlan#>;
+/*
+PLAN CONCLUDE MoveCompleted($env, $goalID) {
+	ID: "http://www.arbi.com//MoveCompletedReal"
+	PRECONDITION :
+		FACT SemanticMapManager($smm);
+		$env == "real";
+	BODY:
+		PERFORM isro:startLog("CONCLUDE", "MoveCompleted");
+		
+		$data = "(MoveCompleted \"" + $env + "\" \"" + $goalID + "\")";
+		PERFORM isro:argumentLog("MoveCompleted",$data);
+		$smm.assertToLTM($data);
+		
+		RETRACT OccupiedStation($goalID, $location);
+		
+		PERFORM isro:endLog("CONCLUDE", "MoveCompleted");
+	EFFECTS :
+		RETRACT MoveCompleted($env, $goalID);
+	UTILITY: 11; 
+}
+*/
+
+PLAN CONCLUDE MoveCompleted($env, $goalID, $robotID, $station) {
+	ID: "http://www.arbi.com//MoveCompleted"
+	PRECONDITION :
+		FACT SemanticMapManager($smm);
+	BODY:
+		PERFORM isro:startLog("CONCLUDE", "MoveCompleted");
+		
+		$log = "(MoveCompleted \"" + $env + "\" \"" + $goalID + "\" \"" + $robotID + "\" \"" + $station + "\")";
+		PERFORM isro:argumentLog("MoveCompleted",$log);
+		PERFORM logTask($log);
+		PERFORM isro:endLog("CONCLUDE", "MoveCompleted");
+	EFFECTS :
+		RETRACT MoveCompleted($env, $goalID, $robotID, $station);
+	UTILITY: 10; 
+}
