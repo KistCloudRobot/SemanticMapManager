@@ -12,7 +12,7 @@ FACTS:
 	FACT LOG;
 	FACT LogToFile;
 	FACT CURRENT_TIME (0);
-	FACT Isaac(2);
+	FACT Isaac(1);
 	FACT Potenit(1);
 	FACT Logistic;
 

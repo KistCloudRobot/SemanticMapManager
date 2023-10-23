@@ -21,7 +21,8 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		
 		//PERFORM UpdateToLTM($robotID, "robotStatus");
 		$receiver = $smm.getRobotContextReceiver($robotID);
-		perform notify("logistic", $receiver, $data);
+		$channelName = $smm.getChannelName($receiver);
+		perform notify($channelName, $receiver, $data);
 	UTILITY : 100;
 }
 
@@ -38,7 +39,8 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		
 		PERFORM UpdateToLTM($robotID, "batteryRemain");
 		$receiver = $smm.getRobotContextReceiver($robotID);
-		perform notify("logistic", $receiver, $data);
+		$channelName = $smm.getChannelName($receiver);
+		perform notify($channelName, $receiver, $data);
 	UTILITY : 100;
 }
 
@@ -53,7 +55,8 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		
 		PERFORM UpdateToLTM($robotID, "robotPosition");
 		$receiver = $smm.getRobotContextReceiver($robotID);
-		perform notify("logistic", $receiver, $data);
+		$channelName = $smm.getChannelName($receiver);
+		perform notify($channelName, $receiver, $data);
 	UTILITY : 100;
 }
 
@@ -69,7 +72,8 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		
 		PERFORM UpdateToLTM($robotID, "robotVelocity");
 		$receiver = $smm.getRobotContextReceiver($robotID);
-		perform notify("logistic", $receiver, $data);
+		$channelName = $smm.getChannelName($receiver);
+		perform notify($channelName, $receiver, $data);
 	UTILITY : 100;
 }
 
@@ -85,7 +89,8 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		
 		//PERFORM UpdateToLTM($robotID, "robotDegree");
 		$receiver = $smm.getRobotContextReceiver($robotID);
-		perform notify("logistic", $receiver, $data);
+		$channelName = $smm.getChannelName($receiver);
+		perform notify($channelName, $receiver, $data);
 	UTILITY : 100;
 }
 
@@ -101,7 +106,8 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 
 		//PERFORM UpdateToLTM($robotID, "robotLoading");
 		$receiver = $smm.getRobotContextReceiver($robotID);
-		perform notify("logistic", $receiver, $data);
+		$channelName = $smm.getChannelName($receiver);
+		perform notify($channelName, $receiver, $data);
 	UTILITY : 100;
 }
 
@@ -117,8 +123,9 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		PERFORM UpdateToLTM($robotID, "robotAt");
 		
 		$localAddress = $smm.getRobotContextReceiver($robotID);
-		perform notify("logistic", $localAddress, $data);
-		perform notify("logistic", $agentAddress, $data);
+		$channelName = $smm.getChannelName($receiver);
+		perform notify($channelName, $localAddress, $data);
+		perform notify($channelName, $agentAddress, $data);
 	UTILITY : 100;
 }
 
@@ -134,7 +141,8 @@ PLAN PERFORM NotifyContext($contextName, $rackID){
 		
 		$receiver = $smm.getObjectContextReceiver($rackID);
 		PERFORM UpdateToLTM($rackID, "rackAt");
-		perform notify("logistic", $receiver, $data);
+		$channelName = $smm.getChannelName($receiver);
+		perform notify($channelName, $receiver, $data);
 	UTILITY : 100;
 }
 
@@ -149,8 +157,9 @@ PLAN PERFORM NotifyContext($contextName, $cargoID){
 		$data = "(UpdateContext (context (cargoAt \"" + $cargoID + "\" $oldV1 $oldV2)) (context (cargoAt \"" + $cargoID +"\" " + $v1 + " " + $v2 +")))";
 		
 		$receiver = $smm.getObjectContextReceiver($cargoID);
+		$channelName = $smm.getChannelName($receiver);
 		PERFORM UpdateToLTM($cargoID, "cargoAt");
-		perform notify("logistic", $receiver, $data);
+		perform notify($channelName, $receiver, $data);
 	UTILITY : 100;
 }
 

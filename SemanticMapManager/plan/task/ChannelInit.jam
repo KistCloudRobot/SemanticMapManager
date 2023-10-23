@@ -5,9 +5,16 @@ PLAN PERFORM ChannelInit() {
 	BODY:
 		System.out.println("---start ChannelInit---");
 		
-		PERFORM connectAgentChannel("logistic",$channel);
+		PERFORM connectAgentChannel("logisticManagement",$channel1);
 		
-		ASSERT Channel("logistic", $channel);		
+		ASSERT Channel("logisticManagement", $channel1);		
+		
+		PERFORM connectAgentChannel("warehouseManagement1",$channel2);
+		
+		ASSERT Channel("warehouseManagement1", $channel2);		
+		PERFORM connectAgentChannel("warehouseManagement2",$channel3);
+		
+		ASSERT Channel("warehouseManagement2", $channel3);	
 		
 		System.out.println("---end ChannelInit---");
 }

@@ -4,6 +4,7 @@ PREFIXES:
 PLAN CONCLUDE palletizerReleasingFinish($robotID, $stationVertex) {
 	ID: "http://www.arbi.com//palletizerReleasingFinishedAtStation1004"
 	PRECONDITION:
+		FACT SemanticMapManager($smm);
 		FACT GLUtility($glUtility);
 		FACT ExtraUtility($helper);
 		FACT  isro:local2Agent($local);
@@ -14,7 +15,8 @@ PLAN CONCLUDE palletizerReleasingFinish($robotID, $stationVertex) {
 		
 		$goalID = $helper.getGoalID($agent);
 		$data = "(context (releasedCargo \"noCargo\" \"http://www.arbi.com/ontologies/arbi.owl#station1004\" \""+$goalID +"\"))";
-		PERFORM inform("logistic",$local, $data);
+		$channelName = $smm.getChannelName($local);
+		PERFORM inform($channelName,$local, $data);
 		
 		
 		PERFORM isro:endLog("CONCLUDE", "palletizerReleasingFinished");

@@ -148,6 +148,16 @@ public class SemanticMapManager extends ArbiAgent {
 		return result;
 	}
 	
+	public String getChannelName(String managerID) {
+		String result = null;
+		if (managerID.equals("agent://www.mcarbi.com/Local1")) {
+			result = "warehouseManagerment1";
+		} else if (managerID.equals("agent://www.mcarbi.com/Local2")) {
+			result = "warehouseManagerment2";
+		}
+		return result;
+	}
+	
 	public void assertToLTM(String content) {
 		dataSource.assertFact(content);
 	}
