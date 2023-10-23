@@ -4,8 +4,8 @@ PREFIXES:
 FACTS:	
 	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_01", 2, 2);
 	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_02", 4, 4);
-	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_03", 34, 34);
-	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_04", 14, 14);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_03", 20, 20);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_04", 52, 52);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_05", 1, 1);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_06", 3, 3);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_07", 4, 4);
@@ -15,8 +15,8 @@ FACTS:
 
 //	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_01",2,2);
 //	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_02",12,12);
-	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_03",34,34);
-//	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_04",50,50);
+//	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_03",26,26);
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_04",52,52);
 //	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_05",30,30);
 //	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_06",36,36);
 //	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_07",40,40);
@@ -26,8 +26,8 @@ FACTS:
  
 //	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_01", "http://www.arbi.com/ontologies/arbi.owl#pallet_01");
 //	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_02", "http://www.arbi.com/ontologies/arbi.owl#pallet_02");
-	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_03", "http://www.arbi.com/ontologies/arbi.owl#pallet_03");
-//	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_04", "http://www.arbi.com/ontologies/arbi.owl#pallet_04");
+//	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_03", "http://www.arbi.com/ontologies/arbi.owl#pallet_03");
+	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_04", "http://www.arbi.com/ontologies/arbi.owl#pallet_04");
 //	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_05", "http://www.arbi.com/ontologies/arbi.owl#pallet_05");
 //	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_06", "http://www.arbi.com/ontologies/arbi.owl#pallet_06");
 //	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_07", "http://www.arbi.com/ontologies/arbi.owl#pallet_07");
@@ -37,8 +37,8 @@ FACTS:
 
 	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_01", "potenit", "None");
 	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_02", "potenit", "None");
-	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_03", "potenit", "Exist");
-	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_04", "potenit", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_03", "potenit", "None");
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_04", "potenit", "Exist");
 	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_05", "potenit", "None");
 	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_06", "potenit", "None");
 	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_07", "potenit", "None");

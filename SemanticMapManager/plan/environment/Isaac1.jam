@@ -9,6 +9,8 @@ FACTS:
 	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_13", 1015, 1015);
 	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_14", 1038, 1038);
 	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_15", 1042, 1042);
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_11",1002,1002);
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_12",1026,1026);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_16", 20, 20);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_17", 30, 30);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_18", 36, 36);

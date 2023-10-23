@@ -8,7 +8,7 @@ PLAN CONCLUDE palletizerReleasingFinish($robotID, $stationVertex) {
 		FACT ExtraUtility($helper);
 		FACT  isro:local2Agent($local);
 		FACT isro:agent($agent);
-		$robotID == "Palletizer3";
+		//$robotID == "Palletizer3";
 	BODY:
 		PERFORM isro:startLog("CONCLUDE", "palletizerReleasingFinish -- 1004");
 		
@@ -18,7 +18,7 @@ PLAN CONCLUDE palletizerReleasingFinish($robotID, $stationVertex) {
 		
 		
 		PERFORM isro:endLog("CONCLUDE", "palletizerReleasingFinished");
-	UTILITY: 11;
+	UTILITY: 50001;
 	EFFECTS:
-		RETRACT palletizerReleasingFinished($robotID, $stationVertex);  
+		RETRACT palletizerReleasingFinish($robotID, $stationVertex);  
 }

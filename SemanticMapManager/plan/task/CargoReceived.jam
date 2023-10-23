@@ -1,8 +1,22 @@
 
 PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
+	ID : "CargoReceivedFailed"
+	PRECONDITION :
+	BODY :
+	
+		PERFORM isro:startLog("PERFORM", "CargoReceived  - failed");
+		
+		PERFORM isro:argumentLog("newCargo", $cargoID);
+		PERFORM isro:argumentLog("stationVertex", $stationVertex);
+		PERFORM isro:endLog("PERFORM", "CargoReceived  - failed");
+	UTILITY : -1;
+}
+
+PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 	ID : "CargoReceivedStation1"
 	PRECONDITION :
 		FACT SemanticMapManager($smm);
+		FACT rackAt($rackID, $stationVertex, $stationVertex);
 		FACT cargoState($cargoID, $location, $state);
 		$state == "None";
 		$stationVertex == 1;
@@ -12,8 +26,6 @@ PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 		
 		PERFORM isro:argumentLog("newCargo", $cargoID);
 		PERFORM isro:argumentLog("stationVertex", $stationVertex);
-		RETRIEVE rackAt($rackID, 1, 1);
-		
 		PERFORM isro:argumentLog("rackID", $rackID);
 		ASSERT On($cargoID, $rackID);
 		ASSERT cargoAt($cargoID, $stationVertex, $stationVertex);
@@ -30,6 +42,7 @@ PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 	ID : "CargoReceivedStation2"
 	PRECONDITION :
 		FACT SemanticMapManager($smm);
+		FACT rackAt($rackID, $stationVertex, $stationVertex);
 		FACT cargoState($cargoID, $location, $state);
 		$state == "None";
 		$stationVertex == 2;
@@ -39,7 +52,6 @@ PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 		
 		PERFORM isro:argumentLog("newCargo", $cargoID);
 		PERFORM isro:argumentLog("stationVertex", $stationVertex);
-		RETRIEVE rackAt($rackID, 2, 2);
 		
 		PERFORM isro:argumentLog("rackID", $rackID);
 		ASSERT On($cargoID, $rackID);
@@ -59,6 +71,7 @@ PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 	ID : "CargoReceivedStation1001"
 	PRECONDITION :
 		FACT SemanticMapManager($smm);
+		FACT rackAt($rackID, $stationVertex, $stationVertex);
 		FACT cargoState($cargoID, $location, $state);
 		$state == "None";
 		$stationVertex == 1001;
@@ -68,7 +81,6 @@ PLAN PERFORM CargoReceived($cargoID, $stationVertex) {
 		
 		PERFORM isro:argumentLog("newCargo", $cargoID);
 		PERFORM isro:argumentLog("stationVertex", $stationVertex);
-		RETRIEVE rackAt($rackID, 1001, 1001);
 		
 		PERFORM isro:argumentLog("rackID", $rackID);
 		ASSERT On($cargoID, $rackID);

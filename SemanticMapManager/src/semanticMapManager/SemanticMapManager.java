@@ -74,7 +74,7 @@ public class SemanticMapManager extends ArbiAgent {
 			}
 		};
 
-		logger = new SemanticMapManagerLogger(this, interpreter);
+//		logger = new SemanticMapManagerLogger(this, interpreter);
 		t.start();
 	}
 	public boolean dequeueMessage() {
@@ -149,10 +149,10 @@ public class SemanticMapManager extends ArbiAgent {
 	}
 	
 	public void assertToLTM(String content) {
-//		dataSource.assertFact(content);
+		dataSource.assertFact(content);
 	}
 	public void updateToLTM(String content) {
-//		dataSource.updateFact(content);
+		dataSource.updateFact(content);
 	}
 	public void subscribeToLTM(String rule) {
 		dataSource.subscribe(rule);

@@ -24,7 +24,7 @@ PLAN PERFORM UpdateToLTM($cargoID, $contextName){
 		$new = "(cargoAt \"" + $cargoID +"\" " + $v1 + " " + $v2 +")";
 		$ltmData = "(updateFact (cargoAt \"" + $cargoID + "\" $oldV1 $oldV2) " + $new + ")";
 		$smm.updateToLTM($ltmData);
-		$smm.logContext($new);
+		PERFORM logContext($new);
 	UTILITY : 100;
 }
 
@@ -39,7 +39,7 @@ PLAN PERFORM UpdateToLTM($rackID, $contextName){
 		$new = "(rackAt \"" + $rackID +"\" " + $v1 + " " + $v2 +")";
 		$ltmData = "(updateFact (rackAt \"" + $rackID + "\" $oldV1 $oldV2) " + $new + ")";
 		$smm.updateToLTM($ltmData);
-		$smm.logContext($new);
+		PERFORM logContext($new);
 	UTILITY : 100;
 }
 
@@ -50,10 +50,10 @@ PLAN PERFORM UpdateToLTM($robotID, $contextName){
 		$contextName =="robotAt";
 		FACT robotAt($robotID, $v1, $v2);
 	BODY:
-	
+		$new = "(robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +")";
 		$ltmData = "(updateFact (robotAt \"" + $robotID + "\" $oldV1 $oldV2) (robotAt \"" + $robotID +"\" " + $v1 + " " + $v2 +"))";
 		$smm.updateToLTM($ltmData);
-		
+		PERFORM logContext($new);		
 	UTILITY : 100;
 }
 
@@ -134,5 +134,7 @@ PLAN PERFORM UpdateToLTM($robotID, $contextName){
 		$ltmData = "(updateFact (robotPosition \"" + $robotID + "\" $oldV1 $oldV2) (robotPosition \"" + $robotID +"\" " + $v1 + " " + $v2+"))";
 		$smm.updateToLTM($ltmData);
 		
+		$new = "(robotPosition \"" + $robotID +"\" " + $v1 + " " + $v2 +")";
+		PERFORM logContext($new);
 	UTILITY : 100;
 }

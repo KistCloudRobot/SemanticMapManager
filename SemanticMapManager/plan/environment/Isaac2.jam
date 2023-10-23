@@ -4,11 +4,11 @@ PREFIXES:
 FACTS:	
 
 
-	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_11", 1010, 1010);
-	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_12", 1015, 1015);
-	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_13", 1027, 1027);
-	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_14", 1029, 1029);
-	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_15", 1003, 1003);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_11", 1014, 1014);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_12", 1025, 1025);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_13", 1042, 1042);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_14", 1044, 1044);
+//	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_15", 1003, 1003);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_16", 20, 20);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_17", 30, 30);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_18", 36, 36);
@@ -17,13 +17,13 @@ FACTS:
 	
 
 
-	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_11",1010,1010);
-	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_12",1015,1015);
+//	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_11",1010,1010);
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_12",1025,1025);
 
-	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_11", "http://www.arbi.com/ontologies/arbi.owl#pallet_11");
+//	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_11", "http://www.arbi.com/ontologies/arbi.owl#pallet_11");
 	FACT On("http://www.arbi.com/ontologies/arbi.owl#bin_12", "http://www.arbi.com/ontologies/arbi.owl#pallet_12");
 
-	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_11", "isaac", "Exist");	
+	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_11", "isaac", "None");	
 	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_12", "isaac", "Exist");
 	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_13", "isaac", "None");
 	FACT cargoState("http://www.arbi.com/ontologies/arbi.owl#bin_14", "isaac", "None");

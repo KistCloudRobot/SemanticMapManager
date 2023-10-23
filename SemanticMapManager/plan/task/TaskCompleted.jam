@@ -33,7 +33,7 @@ PLAN CONCLUDE TaskCompleted($env, $goalID, $robotID) {
 		$log = "(TaskCompleted \"" + $env + "\" \"" + $goalID + "\" \"" + $robotID + "\")";
 		PERFORM isro:argumentLog("TaskCompleted",$data);
 		$smm.assertToLTM($data);
-		$smm.logTask($log);
+		PERFORM logTask($log);
 		PERFORM isro:endLog("CONCLUDE", "TaskCompleted");
 	EFFECTS :
 		RETRACT TaskCompleted($env, $goalID, $robotID);
@@ -51,7 +51,7 @@ PLAN CONCLUDE TaskCompleted($env, $goalID, $robotID) {
 		
 		$log = "(TaskCompleted \"" + $env + "\" \"" + $goalID + "\" \"" + $robotID + "\")";
 		PERFORM isro:argumentLog("TaskCompleted",$log);
-		$smm.logTask($log);
+		PERFORM logTask($log);
 		PERFORM isro:endLog("CONCLUDE", "TaskCompleted");
 	EFFECTS :
 		RETRACT TaskCompleted($env, $goalID, $robotID);
@@ -69,7 +69,7 @@ PLAN CONCLUDE TaskCompleted($env, $goalID, $robotID) {
 		
 		$log = "(TaskCompleted \"" + $env + "\" \"" + $goalID + "\" \"" + $robotID + "\")";
 		PERFORM isro:argumentLog("TaskCompleted",$log);
-		$smm.logTask($log);
+		PERFORM logTask($log);
 		PERFORM isro:endLog("CONCLUDE", "TaskCompleted");
 	EFFECTS :
 		RETRACT TaskCompleted($env, $goalID, $robotID);
@@ -86,7 +86,7 @@ PLAN CONCLUDE TaskCompleted($env, $goalID, $robotID) {
 		
 		$log = "(TaskCompleted \"" + $env + "\" \"" + $goalID + "\" \"" + $robotID + "\")";
 		PERFORM isro:argumentLog("TaskCompleted",$log);
-		$smm.logTask($log);
+		PERFORM logTask($log);
 		PERFORM isro:endLog("CONCLUDE", "TaskCompleted");
 	EFFECTS :
 		RETRACT TaskCompleted($env, $goalID, $robotID);

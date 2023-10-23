@@ -7,7 +7,16 @@ PLAN CONCLUDE updateRobotPath($robotID, $path){
 	PRECONDITION:
 		FACT SemanticMapManager($smm);
 	BODY:
+		PERFORM isro:startLog("CONCLUDE", "updateRobotPath");
+		
+		PERFORM isro:argumentLog("$robotID", $robotID);
+		PERFORM isro:argumentLog("$path", $path);
 		UPDATE (robotPath($robotID, $oldPath)) (robotPath($robotID, $path));
+		
+		$new = "(robotPath \"" + $robotID +"\" " + $path + ")";
+		PERFORM logContext($new);
+		PERFORM isro:endLog("CONCLUDE", "updateRobotPath");
+		
 	UTILITY : 100;
 	EFFECTS :
 		RETRACT updateRobotPath($robotID, $path);

@@ -1,5 +1,7 @@
 package semanticMapManager.utility;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import kr.ac.uos.ai.agentCommunicationFramework.model.GLFactory;
@@ -30,7 +32,10 @@ public class VertexCalcurator {
 		double distance = Math.sqrt(disX + disY);
 		return (float)distance;
 	}
-	
+    private String getCurrentTimeStamp() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return dateFormat.format(new Date());
+    }
 	public String convertPositionToVertex(String location, String robotID, float x, float y, String path) {
 		
 		Map<Integer, Vertex> vertexMap = null;
@@ -48,7 +53,7 @@ public class VertexCalcurator {
 		float nextMinDistance = Float.MAX_VALUE;
 		Vertex nearestVertex = null;
 		Vertex secondNearestVertex = null;
-//		System.out.println("input (robotPosition "+robotID +" " + x + " " + y  + ") timestamp : " + System.currentTimeMillis());
+//		System.out.println(this.getCurrentTimeStamp() + " : input (robotPosition "+robotID +" " + x + " " + y  + ")");
 
 	    GeneralizedList pathGL = null;
 		try {
@@ -94,7 +99,7 @@ public class VertexCalcurator {
 		} else {
 			result = "(robotAt \"" + robotID + "\" " + nearestVertex.getVertexName() + " " + secondNearestVertex.getVertexName() + ")";
 		}
-//		System.out.println("output " + result + " timestamp : " + System.currentTimeMillis());
+//		System.out.println(this.getCurrentTimeStamp() + " : output " + result);
 		return result;
 	}
 	
@@ -104,7 +109,7 @@ public class VertexCalcurator {
 		float nextMinDistance = Float.MAX_VALUE;
 		Vertex nearestVertex = null;
 		Vertex secondNearestVertex = null;
-//		System.out.println("input (robotPosition "+robotID +" " + x + " " + y  + ") timestamp : " + System.currentTimeMillis());
+		System.out.println(this.getCurrentTimeStamp() + "input (robotPosition "+robotID +" " + x + " " + y  + ")");
 
 	    GeneralizedList pathGL = null;
 		try {
@@ -150,7 +155,7 @@ public class VertexCalcurator {
 		} else {
 			result = "(robotAt \"" + robotID + "\" " + nearestVertex.getVertexName() + " " + secondNearestVertex.getVertexName() + ")";
 		}
-//		System.out.println("output " + result + " timestamp : " + System.currentTimeMillis());
+		System.out.println("output " + result + " timestamp : " + System.currentTimeMillis());
 		return result;
 	}
 	

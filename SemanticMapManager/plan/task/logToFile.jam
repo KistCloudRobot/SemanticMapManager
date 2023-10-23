@@ -1,0 +1,37 @@
+PLAN PERFORM logContext($context) {
+	ID: "logContext"
+	PRECONDITION :
+		FACT LogToFile;
+		FACT SemanticMapManager($smm);
+	BODY:
+		
+		$smm.logContext($context);
+		
+}
+
+PLAN PERFORM logContext($context) {
+	ID: "logContextDont"
+	PRECONDITION :
+		FACT SemanticMapManager($smm);
+	BODY:
+	UTILITY : -1;
+}
+
+
+PLAN PERFORM logTask($task) {
+	ID: "logTask"
+	PRECONDITION :
+		FACT LogToFile;
+		FACT SemanticMapManager($smm);
+	BODY:
+		$smm.logTask($task);
+		
+}
+
+PLAN PERFORM logTask($context) {
+	ID: "logTasktDont"
+	PRECONDITION :
+		FACT SemanticMapManager($smm);
+	BODY:
+	UTILITY : -1;
+}

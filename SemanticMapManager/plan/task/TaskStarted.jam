@@ -14,7 +14,7 @@ PLAN CONCLUDE TaskStarted($env, $goalID, $robotID, $goal) {
 		PERFORM isro:argumentLog("TaskStarted",$data);
 		PERFORM isro:argumentLog("robotID",$robotID);
 		$smm.assertToLTM($data);
-		$smm.logTask($log);
+		PERFORM logTask($log);
 		
 		PERFORM isro:endLog("CONCLUDE", "TaskStarted");
 	EFFECTS :
@@ -34,7 +34,7 @@ PLAN CONCLUDE TaskStarted($env, $goalID, $robotID, $goal) {
 		
 		PERFORM isro:argumentLog("TaskStarted",$log);
 		PERFORM isro:argumentLog("robotID",$robotID);
-		$smm.logTask($log);
+		PERFORM logTask($log);
 		
 		PERFORM isro:endLog("CONCLUDE", "TaskStarted");
 	EFFECTS :
