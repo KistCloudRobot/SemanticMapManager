@@ -18,7 +18,7 @@ FACTS:
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_20", 48, 48);
 	
 
-	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_11",1010,1010);
+	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_11",1002,1002);
 	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_12",1012,1012);
 	FACT cargoAt("http://www.arbi.com/ontologies/arbi.owl#bin_13",1026,1026);
 

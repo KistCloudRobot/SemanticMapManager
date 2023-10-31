@@ -14,7 +14,7 @@ PLAN CONCLUDE updateRobotPath($robotID, $path){
 		UPDATE (robotPath($robotID, $oldPath)) (robotPath($robotID, $path));
 		
 		$new = "(robotPath \"" + $robotID +"\" " + $path + ")";
-		PERFORM logContext($new);
+		//PERFORM logContext($new);
 		PERFORM isro:endLog("CONCLUDE", "updateRobotPath");
 		
 	UTILITY : 100;

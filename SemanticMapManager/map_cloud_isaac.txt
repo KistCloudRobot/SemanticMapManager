@@ -58,13 +58,13 @@ Vertex
 Vertex
 	name 1149
 	type 0
-	pos 10.0 0.0 4.5
+	pos 11.1 0.0 4.5
 	edge 1141
 	edge 1150
 Vertex
 	name 1150
 	type 0
-	pos 9.85 0.0 4.5
+	pos 9.4 0.0 4.5
 	edge 1149
 	edge 1002
 Vertex
@@ -138,7 +138,7 @@ Vertex
 Vertex
 	name 1141
 	type 0
-	pos 13.30 0.0 4.5
+	pos 13.50 0.0 4.5
 	edge 1149
 	edge 1142
 	edge 1151
@@ -235,27 +235,27 @@ Vertex
 Vertex
 	name 1142
 	type 0
-	pos 13.30 0.0 7.5
+	pos 13.5 0.0 7.5
 	edge 1146
 	edge 1101
 	edge 1141
 Vertex
 	name 1146
 	type 0
-	pos 11.55 0.0 7.5
+	pos 11.8 0.0 7.5
 	edge 1142
 	edge 1147
 Vertex
 	name 1147
 	type 0
-	pos 10.2 0.0 7.5
+	pos 10.5 0.0 7.5
 	edge 1144
 	edge 1148
 	edge 1146
 Vertex
 	name 1148
 	type 0
-	pos 9.85 0.0 7.5
+	pos 9.1 0.0 7.5
 	edge 1147
 	edge 1003
 Vertex
@@ -273,7 +273,7 @@ Vertex
 Vertex
 	name 1101
 	type 0
-	pos 14.50 0.0 9
+	pos 14.60 0.0 9
 	edge 1100
 	edge 1142
 	edge 1102
@@ -341,30 +341,30 @@ Vertex
 Vertex
 	name 1004
 	type 1
-	pos 7.54 0.0 10.5
+	pos 7.525 0.0 10.5
 	edge 1145
 Vertex
 	name 1100
 	type 0
-	pos 12.90 0.0 10.5
+	pos 13.20 0.0 10.5
 	edge 1143
 	edge 1101
 Vertex
 	name 1143
 	type 0
-	pos 11.55 0.0 10.5
+	pos 11.8 0.0 10.5
 	edge 1144
 	edge 1100
 Vertex
 	name 1144
 	type 0
-	pos 10.2 0.0 10.5
+	pos 10.5 0.0 10.5
 	edge 1145
 	edge 1147
 	edge 1143
 Vertex
 	name 1145
 	type 0
-	pos 9.85 0.0 10.5
+	pos 9.1 0.0 10.5
 	edge 1004
 	edge 1144

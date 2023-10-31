@@ -123,7 +123,7 @@ PLAN PERFORM NotifyContext($contextName, $robotID){
 		PERFORM UpdateToLTM($robotID, "robotAt");
 		
 		$localAddress = $smm.getRobotContextReceiver($robotID);
-		$channelName = $smm.getChannelName($receiver);
+		$channelName = $smm.getChannelName($localAddress);
 		perform notify($channelName, $localAddress, $data);
 		perform notify($channelName, $agentAddress, $data);
 	UTILITY : 100;
