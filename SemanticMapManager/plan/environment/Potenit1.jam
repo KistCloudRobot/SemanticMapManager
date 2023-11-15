@@ -6,7 +6,7 @@ FACTS:
 	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_02", 2, 2);
 	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_03", 20, 20);
 	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_04", 3, 3);
-	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_05", 50, 50);
+	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_05", 52, 52);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_06", 20, 20);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_07", 30, 30);
 //	FACT rackAt("http://www.arbi.com/ontologies/arbi.owl#pallet_08", 36, 36);

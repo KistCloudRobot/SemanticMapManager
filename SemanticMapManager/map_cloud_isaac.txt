@@ -6,7 +6,7 @@ Vertex
 Vertex
 	name 1151
 	type 0
-	pos 11.55 0.0 3
+	pos 11.7 0.0 3
 	edge 1141
 	edge 1152
 Vertex
@@ -18,37 +18,37 @@ Vertex
 Vertex
 	name 1038
 	type 1
-	pos 16.1 0.0 3
+	pos 16.1 0.0 2.75
 	edge 1140
 Vertex
 	name 1039
 	type 1
-	pos 17.45 0.0 3
+	pos 17.45 0.0 2.75
 	edge 1139
 Vertex
 	name 1040
 	type 1
-	pos 18.8 0.0 3
+	pos 18.8 0.0 2.75
 	edge 1138
 Vertex
 	name 1041
 	type 1
-	pos 20.15 0.0 3
+	pos 20.15 0.0 2.75
 	edge 1137
 Vertex
 	name 1042
 	type 1
-	pos 21.5 0.0 3
+	pos 21.5 0.0 2.75
 	edge 1136
 Vertex
 	name 1043
 	type 1
-	pos 22.85 0.0 3
+	pos 22.85 0.0 2.75
 	edge 1135
 Vertex
 	name 1044
 	type 1
-	pos 24.2 0.0 3
+	pos 24.2 0.0 2.75
 	edge 1134
 Vertex
 	name 1002
@@ -58,13 +58,13 @@ Vertex
 Vertex
 	name 1149
 	type 0
-	pos 11.1 0.0 4.5
+	pos 10.8 0.0 4.5
 	edge 1141
 	edge 1150
 Vertex
 	name 1150
 	type 0
-	pos 9.4 0.0 4.5
+	pos 9.2 0.0 4.5
 	edge 1149
 	edge 1002
 Vertex
@@ -98,7 +98,7 @@ Vertex
 Vertex
 	name 1136
 	type 0
-	pos 21.5 0.0 4.55
+	pos 21.5 0.0 4.5
 	edge 1028
 	edge 1137
 	edge 1042
@@ -146,37 +146,37 @@ Vertex
 Vertex
 	name 1024
 	type 1
-	pos 16.1 0.0 6
+	pos 16.1 0.0 6.25
 	edge 1140
 Vertex
 	name 1025
 	type 1
-	pos 17.45 0.0 6
+	pos 17.45 0.0 6.25
 	edge 1139
 Vertex
 	name 1026
 	type 1
-	pos 18.8 0.0 6
+	pos 18.8 0.0 6.25
 	edge 1138
 Vertex
 	name 1027
 	type 1
-	pos 20.15 0.0 6
+	pos 20.15 0.0 6.25
 	edge 1137
 Vertex
 	name 1028
 	type 1
-	pos 21.5 0.0 6
+	pos 21.5 0.0 6.25
 	edge 1136
 Vertex
 	name 1029
 	type 1
-	pos 22.85 0.0 6
+	pos 22.85 0.0 6.25
 	edge 1135
 Vertex
 	name 1030
 	type 1
-	pos 24.2 0.0 6
+	pos 24.2 0.0 6.25
 	edge 1134
 	edge 1016
 Vertex
@@ -199,37 +199,37 @@ Vertex
 Vertex
 	name 1010
 	type 1
-	pos 16.1 0.0 7.5
+	pos 16.1 0.0 7.25
 	edge 1102
 Vertex
 	name 1011
 	type 1
-	pos 17.45 0.0 7.5
+	pos 17.45 0.0 7.25
 	edge 1103
 Vertex
 	name 1012
 	type 1
-	pos 18.8 0.0 7.5
+	pos 18.8 0.0 7.25
 	edge 1104
 Vertex
 	name 1013
 	type 1
-	pos 20.15 0.0 7.5
+	pos 20.15 0.0 7.25
 	edge 1105
 Vertex
 	name 1014
 	type 1
-	pos 21.5 0.0 7.5
+	pos 21.5 0.0 7.25
 	edge 1106
 Vertex
 	name 1015
 	type 1
-	pos 22.85 0.0 7.5
+	pos 22.85 0.0 7.25
 	edge 1107
 Vertex
 	name 1016
 	type 1
-	pos 24.2 0.0 7.5
+	pos 24.2 0.0 7.25
 	edge 1108
 	edge 1030
 Vertex
